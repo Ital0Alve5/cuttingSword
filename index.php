@@ -20,17 +20,17 @@ spl_autoload_register('autoload');
 
 
 // Home
-Router::GET('/', 'HomeController@index');
-Router::GET('/home', 'HomeController@index');
+Router::get('/', 'HomeController@index');
+Router::get('/home', 'HomeController@index');
 
 
 // Game
-Router::GET('/game', 'GameController@index');
+Router::get('/game', 'GameController@index');
 
 
 //Teste
-Router::GET('/teste', 'TesteController@getUser');
-Router::POST('/teste', 'TesteController@createUser');
+Router::get('/teste', 'TesteController@getUser');
+Router::post('/teste', 'TesteController@createUser');
 
 // Load routes
 Router::route();

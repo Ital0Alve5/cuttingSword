@@ -15,22 +15,22 @@ class Router
         Router::$routes[] = ['httpMethod' => $httpMethod, 'url' => $url, 'controllerName' => $controllerName, 'controllerMethod' => $controllerMethod];
     }
 
-    public static function GET($url, $controller)
+    public static function get($url, $controller)
     {
         Router::addRoute('GET', $url, $controller);
     }
 
-    public static function POST($url, $controller)
+    public static function post($url, $controller)
     {
         Router::addRoute('POST', $url, $controller);
     }
 
-    public static function UPDATE($url, $controller)
+    public static function update($url, $controller)
     {
         Router::addRoute('UPDATE', $url, $controller);
     }
 
-    public static function DELETE($url, $controller)
+    public static function delete($url, $controller)
     {
         Router::addRoute('DELETE', $url, $controller);
     }
