@@ -2,59 +2,80 @@
 
 class Router
 {
-    private $routes = [];
+    private static $routes = [];
 
-    public function addRoute($method, $urlPattern, $controller)
+    private static function sanitizeUrl($url)
     {
-        $pattern = '/^' . str_replace('/', '\/', $urlPattern) . '$/';
-        $this->routes[] = ['method' => $method, 'pattern' => $pattern, 'controller' => $controller];
+        return '/^' . str_replace('/', '\/', $url) . '$/';
     }
 
-    public static function get(){
-        
+    private static function addRoute($httpMethod, $url, $controller)
+    {
+        [0 => $controllerName, 1 => $controllerMethod] = explode('@', $controller);
+        Router::$routes[] = ['httpMethod' => $httpMethod, 'url' => $url, 'controllerName' => $controllerName, 'controllerMethod' => $controllerMethod];
     }
 
-    public function route()
+    public static function GET($url, $controller)
+    {
+        Router::addRoute('GET', $url, $controller);
+    }
+
+    public static function POST($url, $controller)
+    {
+        Router::addRoute('POST', $url, $controller);
+    }
+
+    public static function UPDATE($url, $controller)
+    {
+        Router::addRoute('UPDATE', $url, $controller);
+    }
+
+    public static function DELETE($url, $controller)
+    {
+        Router::addRoute('DELETE', $url, $controller);
+    }
+
+    public static function route()
     {
         $url = $_SERVER['REQUEST_URI'];
         $method = $_SERVER['REQUEST_METHOD'];
 
-        foreach ($this->routes as $route) {
-            if ($method == $route['method'] && preg_match($route['pattern'], $url, $matches)) {
-                // Remove o primeiro elemento, que contém a URL completa
+        foreach (Router::$routes as $route) {
+            if ($method == $route['httpMethod'] && preg_match(Router::sanitizeUrl($route['url']), $url, $matches)) {
+
                 array_shift($matches);
 
-                switch ($route['method']) {
+                switch ($route['httpMethod']) {
                     case "GET":
-                        $this->handleGetMethods($route);
+                        Router::handleGetMethods($route);
                         break;
                     case "POST":
                     case "UPDATE":
                     case "DELETE":
-                        $this->handleInputMethods($route);
+                        Router::handleInputMethods($route);
                 }
                 return;
             }
         }
 
-        $this->notFound();
+        Router::notFound();
     }
 
-    private function handleGetMethods($route)
+    private static function handleGetMethods($route)
     {
-        $controller = new $route['controller']['class']();
-        $controller->{$route['controller']['method']}();
+        $controller = new $route['controllerName']();
+        $controller->{$route['controllerMethod']}();
     }
 
-    private function handleInputMethods($route)
+    private static function handleInputMethods($route)
     {
         $jsonData = file_get_contents('php://input');
         $data = json_decode($jsonData, true);
-        $controller = new $route['controller']['class']();
-        $controller->{$route['controller']['method']}($data);
+        $controller = new $route['controllerName']();
+        $controller->{$route['controllerMethod']}($data);
     }
 
-    private function notFound()
+    private static function notFound()
     {
         require("./view/404.php");
     }

@@ -5,34 +5,31 @@ include './app/Cors.php';
 
 Cors::setupCors();
 
-function AutoloadModels($className)
+function autoload($className)
 {
-    $extension =  spl_autoload_extensions();
-    if (file_exists(__DIR__ . '/models/' . $className . $extension)) {
-        require_once(__DIR__ . '/models/' . $className . $extension);
+    if (file_exists(__DIR__ . '/controllers/' . $className . '.php')) {
+        require_once(__DIR__ . '/controllers/' . $className . '.php');
+    } else if (file_exists(__DIR__ . '/models/' . $className . '.php')) {
+        require_once(__DIR__ . '/models/' . $className . '.php');
+    } else if (file_exists(__DIR__ . '/models/db' . $className . '.php')) {
+        require_once(__DIR__ . '/models/db' . $className . '.php');
     }
 }
 
-function AutoloadControllers($className)
-{
-    $extension =  spl_autoload_extensions();
-    if (file_exists(__DIR__ . '/controllers/' . $className . $extension)) {
-        require_once(__DIR__ . '/controllers/' . $className . $extension);
-    }
-}
+spl_autoload_register('autoload');
 
-spl_autoload_extensions('.php');
-spl_autoload_register('AutoloadModels');
-spl_autoload_register('AutoloadControllers');
+// Home
+Router::GET('/', 'HomeController@index');
+Router::GET('/home', 'HomeController@index');
 
-$router = new Router();
 
-$router->addRoute('GET', '/', ['class' => 'HomeController', 'method' => 'index']);
+// Game
+Router::GET('/game', 'GameController@index');
 
-$router->addRoute('GET', '/game', ['class' => 'GameController', 'method' => 'index']);
 
-$router->addRoute('GET', '/teste', ['class' => 'TesteController', 'method' => 'getUser']);
+//Teste
+Router::GET('/teste', 'TesteController@getUser');
+Router::POST('/teste', 'TesteController@createUser');
 
-$router->addRoute('POST', '/teste', ['class' => 'TesteController', 'method' => 'createUser']);
-
-$router->route();
+// Load routes
+Router::route();
