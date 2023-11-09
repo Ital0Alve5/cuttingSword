@@ -9,7 +9,10 @@ include './view/components/header.php'
 
 ?>
 
-<h1>Bem vindo à home</h1>
+<h1>
+    Bem vindo à home,
+    <span class="userName"></span>
+</h1>
 
 
 

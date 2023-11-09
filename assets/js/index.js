@@ -9,6 +9,9 @@
     });
     const user = await response.json();
     console.log(user);
+
+    const userNameElement = document.querySelector(".userName");
+    userNameElement.innerText = user.name;
   }
 
   async function postUser() {
@@ -29,5 +32,5 @@
   }
 
   await getUser();
-    // await postUser();
+  // await postUser();
 })();
