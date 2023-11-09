@@ -126,6 +126,7 @@ class Leagues
         return json_encode(array(
             "id" => $this->getId(),
             "creatorId" => $this->getCreatorId(),
+            "name" => $this->getName(),
             "secretKey" => $this->getSecretKey(),
         ));
     }
