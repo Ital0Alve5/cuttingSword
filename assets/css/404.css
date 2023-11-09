@@ -1,0 +1,27 @@
+.notFoundContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-direction: column;
+}
+
+.notFoundContainer a {
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+.notFoundContainer h1 {
+  font-size: 3rem;
+}
+
+.notFoundContainer p {
+  position: absolute;
+  font-size: 500px;
+  color: #f3f6f7;
+  z-index: -1;
+}

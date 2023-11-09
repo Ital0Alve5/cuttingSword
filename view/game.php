@@ -1,9 +1,12 @@
 <?php
 $pageTitle = "Game";
-include './view/components/header.php';
+
 function customHeader(){
     echo '<link rel="stylesheet" href="../../assets/css/game/index.css">';
 }
+
+include './view/components/header.php';
+
 ?>
 
 <div class="game">
