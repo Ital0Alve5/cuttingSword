@@ -10,6 +10,10 @@ class Router
         $this->routes[] = ['method' => $method, 'pattern' => $pattern, 'controller' => $controller];
     }
 
+    public static function get(){
+        
+    }
+
     public function route()
     {
         $url = $_SERVER['REQUEST_URI'];

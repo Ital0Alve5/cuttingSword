@@ -1,7 +1,7 @@
 <?php
 $pageTitle = "Home";
 
-function customPageHeader()
+function customHeader()
 {
 }
 

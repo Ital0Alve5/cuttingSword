@@ -1,6 +1,9 @@
 <?php
 
-include './Router.php';
+include './app/Router.php';
+include './app/Cors.php';
+
+Cors::setupCors();
 
 function AutoloadModels($className)
 {
@@ -25,6 +28,8 @@ spl_autoload_register('AutoloadControllers');
 $router = new Router();
 
 $router->addRoute('GET', '/', ['class' => 'HomeController', 'method' => 'index']);
+
+$router->addRoute('GET', '/game', ['class' => 'GameController', 'method' => 'index']);
 
 $router->addRoute('GET', '/teste', ['class' => 'TesteController', 'method' => 'getUser']);
 
