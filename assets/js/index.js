@@ -28,6 +28,6 @@
     console.log(user);
   }
 
-  await getUser();
-    // await postUser();
+  // await getUser();
+    await postUser();
 })();

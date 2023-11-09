@@ -24,7 +24,6 @@ class Seed
         ");
     }
 
-
     private static function seedGlobalUsersHistory()
     {
         $sql = new Mysql();
@@ -43,7 +42,6 @@ class Seed
         ");
     }
 
-
     private static function seedLeagues()
     {
         $sql = new Mysql();
@@ -52,7 +50,6 @@ class Seed
             INSERT INTO Leagues(creatorId, secretKey) VALUES (2, '57285571deec8d096491da6f2bf7f2a6');
         ");
     }
-
 
     private static function seedLeagueUsersHistory()
     {

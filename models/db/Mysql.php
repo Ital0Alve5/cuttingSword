@@ -16,34 +16,25 @@ class Mysql extends PDO
 
         $this->connection = new PDO("mysql:host=localhost", "root", "root");
 
-        if (!$this->connection) {
-            die('Erro ao iniciar conexão com o servidor de banco de dados');
-        }
+        if (!$this->connection) die('Erro ao iniciar conexão com o servidor de banco de dados');
 
         $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $databases = $this->connection->query('show databases')->fetchAll(PDO::FETCH_COLUMN);
 
-        if (!in_array("cuttingSword", $databases)) {
-            if (!$this->createDatabase()) {
-                die('Erro ao criar banco de dados');
-            }
-            if (!$this->useDatabase()) {
-                die('Erro ao usar banco de dados');
-            }
-            if (!$this->createTables()) {
-                die('Erro ao criar tabelas');
-            }
-        } else {
-            $this->connection = new PDO("mysql:host=localhost;dbname=cuttingSword", "root", "root");
+        if (in_array("cuttingSword", $databases)) $this->connection = new PDO("mysql:host=localhost;dbname=cuttingSword", "root", "root");
+        else {
+            if (!$this->createDatabase()) die('Erro ao criar banco de dados');
+            if (!$this->useDatabase()) die('Erro ao usar banco de dados');
+            if (!$this->createTables()) die('Erro ao criar tabelas');
+            Seed::seedDatabase();
         }
     }
 
     private function createDatabase()
     {
-        if (!$this->executeQuery("CREATE DATABASE IF NOT EXISTS cuttingSword")) {
-            return false;
-        }
+        if (!$this->executeQuery("CREATE DATABASE IF NOT EXISTS cuttingSword")) return false;
+        
         $this->connection = new PDO("mysql:host=localhost;dbname=cuttingSword", "root", "root");
         return true;
     }

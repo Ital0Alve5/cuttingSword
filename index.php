@@ -18,6 +18,8 @@ function autoload($className)
 
 spl_autoload_register('autoload');
 
+
+
 // Home
 Router::GET('/', 'HomeController@index');
 Router::GET('/home', 'HomeController@index');
