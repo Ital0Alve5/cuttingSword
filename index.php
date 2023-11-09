@@ -28,7 +28,7 @@ Router::get('/home', 'HomeController@index');
 Router::get('/game', 'GameController@index');
 
 
-//Teste
+//Teste API
 Router::get('/teste', 'TesteController@getUser');
 Router::post('/teste', 'TesteController@createUser');
 
