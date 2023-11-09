@@ -107,6 +107,7 @@ class Leagues
             $row = $results[0];
             $this->setId($row['id']);
             $this->setCreatorId($row['creatorId']);
+            $this->setName($row['name']);
             $this->setSecretKey($row['secretKey']);
         }
     }
