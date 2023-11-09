@@ -6,6 +6,7 @@ class Leagues
 {
     private $id;
     private $creatorId;
+    private $name;
     private $secretKey;
 
     public function setId($id)
@@ -28,6 +29,16 @@ class Leagues
         return $this->creatorId;
     }
 
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function getName()
+    {
+        return $this->name;
+    }
+
     public function setSecretKey($secretKey)
     {
         $this->secretKey = $secretKey;
@@ -39,15 +50,16 @@ class Leagues
     }
 
 
-    public function updateLeagueById($id, $creatorId, $secretKey)
+    public function updateLeagueById($id, $creatorId, $name, $secretKey)
     {
         $sql = new Mysql();
 
         return $sql->executeQuery(
-            "UPDATE Leagues SET creatorId = :CREATOR_ID, secretKey = :SECRET_KEY WHERE id = :ID;",
+            "UPDATE Leagues SET creatorId = :CREATOR_ID, name = :NAME, secretKey = :SECRET_KEY WHERE id = :ID;",
             array(
                 ":ID" => $id,
                 ":CREATOR_ID" => $creatorId,
+                ":NAME" => $name,
                 "SECRET_KEY" => $secretKey
             )
         )->rowCount();
@@ -62,12 +74,13 @@ class Leagues
     }
 
 
-    public static function createLeague($creatorId, $secretKey)
+    public static function createLeague($creatorId, $name, $secretKey)
     {
         $sql = new Mysql();
 
-        $sql->executeQuery("INSERT INTO Leagues(creatorId, secretKey) VALUES (:CREATOR_ID, :SECRET_KEY);", array(
+        $sql->executeQuery("INSERT INTO Leagues(creatorId, name, secretKey) VALUES (:CREATOR_ID, :NAME, :SECRET_KEY);", array(
             ":CREATOR_ID" => $creatorId,
+            ":NAME" => $name,
             ":SECRET_KEY" => $secretKey
         ));
 
