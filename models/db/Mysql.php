@@ -69,6 +69,7 @@ class Mysql extends PDO
         CREATE TABLE IF NOT EXISTS Leagues(
             id INTEGER NOT NULL AUTO_INCREMENT,
             creatorId INTEGER NOT NULL,
+            name VARCHAR(50) NOT NULL,
             secretKey CHAR(32),
             CONSTRAINT pk_leagues PRIMARY KEY (id),
             CONSTRAINT fk_leagueCreatorId FOREIGN KEY (creatorId) REFERENCES Users(id)

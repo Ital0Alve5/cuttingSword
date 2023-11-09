@@ -46,8 +46,8 @@ class Seed
     {
         $sql = new Mysql();
         return $sql->executeQuery("
-            INSERT INTO Leagues(creatorId, secretKey) VALUES (1, '04b6e1a104ba0ed5e7985abde3e13140');
-            INSERT INTO Leagues(creatorId, secretKey) VALUES (2, '57285571deec8d096491da6f2bf7f2a6');
+            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (1, 'liga1', '04b6e1a104ba0ed5e7985abde3e13140');
+            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (2, 'liga2', '57285571deec8d096491da6f2bf7f2a6');
         ");
     }
 
