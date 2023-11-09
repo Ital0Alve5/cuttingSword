@@ -48,10 +48,7 @@ function customHeader(){
         <canvas class="screen"></canvas>
     </div>
 </div>
-<!-- <script type="module" src="./assets/js/Main.js"></script>
-</body>
 
-</html> -->
 <?php
 
 function customFooter()

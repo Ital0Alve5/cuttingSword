@@ -1,5 +1,6 @@
 <?php
 
+require('./models/db/Seed.php');
 class Mysql extends PDO
 {
 
@@ -34,7 +35,7 @@ class Mysql extends PDO
     private function createDatabase()
     {
         if (!$this->executeQuery("CREATE DATABASE IF NOT EXISTS cuttingSword")) return false;
-        
+
         $this->connection = new PDO("mysql:host=localhost;dbname=cuttingSword", "root", "root");
         return true;
     }
