@@ -85,7 +85,7 @@ class GlobalUsersHistory
     public static function getUserHistoryByUserId($userId)
     {
         $sql = new Mysql();
-        $results = $sql->select("SELECT * FROM GlobalUsersHistory WHERE userId = :USER_ID ORDER BY date ASC", array(":USER_ID" => $userId));
+        $results = $sql->select("SELECT * FROM GlobalUsersHistory WHERE userId = :USER_ID ORDER BY date ASC", array(":USER_ID" => filter_var($userId, FILTER_SANITIZE_NUMBER_INT)));
         return $results;
     }
 
@@ -100,7 +100,7 @@ class GlobalUsersHistory
             VALUES (
                 :USER_ID, :TIME_LEFT, :VICTORY, :MATCH_POINTS, :MATCH_LEVEL, :DATE
                 )", array(
-            ":USER_ID" => $userId,
+            ":USER_ID" => filter_var($userId, FILTER_SANITIZE_NUMBER_INT),
             ":TIME_LEFT" => $timeLeft,
             ":VICTORY" => $victory,
             ":MATCH_POINTS" => $matchPoints,
