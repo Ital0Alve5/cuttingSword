@@ -23,7 +23,7 @@ class TesteController
         if ($user->getUserEmail() && $user->getUserPassword() === md5($data['password'])) {
             echo $user;
         } else {
-            echo json_encode(["error" => true, "message" => "Usuário ou senha incorretos"]);
+            echo json_encode(["error" => true, "message" => "Usuário ou senha incorretos"], JSON_UNESCAPED_UNICODE);
         }
     }
 }
