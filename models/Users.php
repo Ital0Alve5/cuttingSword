@@ -60,6 +60,19 @@ class Users
         }
     }
 
+    public function loadUserByEmail($email)
+    {
+        $sql = new Mysql();
+        $results = $sql->select("SELECT * FROM Users WHERE email = :EMAIL", array(":EMAIL" => $email));
+        if (count($results) > 0) {
+            $row = $results[0];
+            $this->setUserId($row['id']);
+            $this->setUserName($row['name']);
+            $this->setUserEmail($row['email']);
+            $this->setUserPassword($row['password']);
+        }
+    }
+
     /**
      * @return array array of associative arrays (key => value). Key is the column name and value is the data.
      */
