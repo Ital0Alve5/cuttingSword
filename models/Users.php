@@ -1,7 +1,5 @@
 <?php
 
-require('./models/db/Mysql.php');
-
 class Users
 {
     private $id;
