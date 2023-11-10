@@ -123,4 +123,13 @@ class Mysql extends PDO
     {
         return $this->connection;
     }
+    public function filtervarDatetime($Datetime, $model = 'Y-m-d H:i:s') {
+        $datetimeObject = DateTime::createFromFormat($model, $Datetime);
+    
+        if ($datetimeObject && $datetimeObject->format($model) === $Datetime) {
+            return $datetimeObject->format($model);
+        } else {
+            return false;
+        }
+    }  
 }
