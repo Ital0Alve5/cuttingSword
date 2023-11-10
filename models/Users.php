@@ -110,4 +110,18 @@ class Users
             "password" => $this->getUserPassword(),
         ));
     }
+    public function checkEmail($email){
+        $sql = new Mysql();
+        return $sql->executeQuery("SELECT id FROM Users WHERE email = '$email'");
+    }
+
+    public function checkEmailPassRelation($email, $password){
+        $sql = new Mysql();
+        $realPassword = $sql->executeQuery("SELECT password FROM Users WHERE email = '$email'");
+        if($realPassword === $password){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

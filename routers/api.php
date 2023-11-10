@@ -6,4 +6,4 @@ Router::post('/teste', 'TesteController@createUser');
 
 
 // Login
-Router::post('/login','Login@index');
+Router::post('/login','LoginController@index');
