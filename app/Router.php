@@ -84,7 +84,6 @@ class Router
 
                 $route['url'] = implode('/', $mappedRoute);
                 $route['GETParams'] = $GETParams;
-                if ($route['url'] !== $url) return;
                 return $route;
             }
         }
@@ -94,7 +93,8 @@ class Router
     private static function handleGetMethods($route)
     {
         $controller = new $route['controllerName']();
-        $controller->{$route['controllerMethod']}($route['GETParams']);
+        if (array_key_exists('GETParams', $route)) $controller->{$route['controllerMethod']}($route['GETParams']);
+        else $controller->{$route['controllerMethod']}();
     }
 
     private static function handleInputMethods($route)
