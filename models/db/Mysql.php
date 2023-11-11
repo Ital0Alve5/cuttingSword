@@ -77,14 +77,14 @@ class Mysql extends PDO
         CREATE TABLE IF NOT EXISTS LeagueUsersHistory(
             leagueId INTEGER NOT NULL,
             userId INTEGER NOT NULL,
+            date TIMESTAMP,
             victory BOOLEAN,
             timeLeft INTEGER,
             matchLevel VARCHAR(10),
             matchPoints INTEGER,
-            date TIMESTAMP,
             CONSTRAINT fk_leagueIdHistory FOREIGN KEY (leagueId) REFERENCES Leagues(id),
             CONSTRAINT fk_leagueUserHistory FOREIGN KEY (userId) REFERENCES Users(id),
-            CONSTRAINT pk_leagueUsersHistory PRIMARY KEY (leagueId, userId)
+            CONSTRAINT pk_leagueUsersHistory PRIMARY KEY (leagueId, userId, date)
         );
         ");
     }

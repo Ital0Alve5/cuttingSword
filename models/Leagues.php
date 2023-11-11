@@ -110,6 +110,22 @@ class Leagues
         }
     }
 
+
+    public function loadLeagueByName($name)
+    {
+        $sql = new Mysql();
+
+        $results = $sql->select("SELECT * FROM Leagues WHERE name = :NAME;", array(":NAME" => $name));
+
+        if (count($results) > 0) {
+            $row = $results[0];
+            $this->setId($row['id']);
+            $this->setCreatorId($row['creatorId']);
+            $this->setName($row['name']);
+            $this->setSecretKey($row['secretKey']);
+        }
+    }
+
     public static function getLeaguesListByCreatorId($creatorId)
     {
         $sql = new Mysql();
