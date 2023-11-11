@@ -1,11 +1,11 @@
 /**
- * 
+ *
  * TODO: O id do player está mockado. Precisa do login para ficar dinâmico
- * 
+ *
  */
 (async function () {
   async function getUserHistory() {
-    const userHistory = await fetch("http://localhost:5200/history/1"); 
+    const userHistory = await fetch("http://localhost:5200/history/1");
     const userHistoryJson = await userHistory.json();
     return userHistoryJson;
   }
@@ -20,7 +20,9 @@
         const td = document.createElement("td");
         if (cell === "leagueName" && row[cell] === null) row[cell] = "casual";
         else if (cell === "victory")
-          row[cell] = row[cell] === 1 ? "sim" : "não";
+          row[cell] = row[cell] === 1 ? "Vitória" : "Derrota";
+        else if (cell === "level" && row[cell] === null) row[cell] = "-";
+
         td.innerText = row[cell];
         tr.appendChild(td);
       });
