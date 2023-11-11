@@ -1,0 +1,142 @@
+.rankingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-top: 100px;
+}
+
+.tablesContainer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.totalRankingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.weekRankingContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  justify-content: center;
+}
+
+.header a {
+  position: absolute;
+  left: 0;
+  padding: 10px 15px;
+  background: #f2f2f2;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: black;
+}
+
+table {
+  width: 70%;
+  border-collapse: collapse;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  padding: 10px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody {
+  width: 100%;
+  display: block;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+thead,
+tbody tr {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+
+@media only screen and (max-width: 600px) {
+  table,
+  thead,
+  tbody,
+  th,
+  td,
+  tr {
+    display: block;
+  }
+
+  th {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  tr {
+    margin-bottom: 15px;
+  }
+
+  td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  td:before {
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  td:nth-of-type(1):before {
+    content: "Usuário:";
+    font-weight: bold;
+  }
+  td:nth-of-type(2):before {
+    content: "Pontuação:";
+    font-weight: bold;
+  }
+
+  .header a {
+    left: unset;
+    transform: translateY(100%);
+  }
+
+  .tablesContainer {
+    flex-direction: column;
+    margin-top: 40px;
+    gap: 20px;
+  }
+}

@@ -9,3 +9,6 @@ Router::get('/game', 'GameController@index');
 
 //history
 Router::get('/history', 'HistoryController@index');
+
+//ranking
+Router::get('/ranking', 'RankingController@index');
