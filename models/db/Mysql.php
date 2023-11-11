@@ -55,16 +55,15 @@ class Mysql extends PDO
             password CHAR(32) NOT NULL,
             CONSTRAINT pk_users PRIMARY KEY (id)
         );
-        CREATE TABLE IF NOT EXISTS GlobalUsersHistory(
+        CREATE TABLE IF NOT EXISTS CasualGameHistory(
             id INTEGER NOT NULL AUTO_INCREMENT,
             userId INTEGER NOT NULL,
-            mode VARCHAR(10),
             victory BOOLEAN,
             timeLeft INTEGER,
             matchLevel VARCHAR(10),
             matchPoints INTEGER,
             date TIMESTAMP UNIQUE,
-            CONSTRAINT pk_globalUsersHistory PRIMARY KEY (id),
+            CONSTRAINT pk_casualGameHistory PRIMARY KEY (id),
             CONSTRAINT fk_userGlobalHistory FOREIGN KEY (userId) REFERENCES Users(id)
         );
         CREATE TABLE IF NOT EXISTS Leagues(
@@ -75,16 +74,16 @@ class Mysql extends PDO
             CONSTRAINT pk_leagues PRIMARY KEY (id),
             CONSTRAINT fk_leagueCreatorId FOREIGN KEY (creatorId) REFERENCES Users(id)
         );
-        CREATE TABLE IF NOT EXISTS LeagueUsersHistory(
+        CREATE TABLE IF NOT EXISTS LeagueGameHistory(
             leagueId INTEGER NOT NULL,
             userId INTEGER NOT NULL,
-            date TIMESTAMP,
             victory BOOLEAN,
             timeLeft INTEGER,
             matchPoints INTEGER,
+            date TIMESTAMP,
             CONSTRAINT fk_leagueIdHistory FOREIGN KEY (leagueId) REFERENCES Leagues(id),
             CONSTRAINT fk_leagueUserHistory FOREIGN KEY (userId) REFERENCES Users(id),
-            CONSTRAINT pk_leagueUsersHistory PRIMARY KEY (leagueId, userId, date)
+            CONSTRAINT pk_leagueGameHistory PRIMARY KEY (leagueId, userId, date)
         );
         ");
     }

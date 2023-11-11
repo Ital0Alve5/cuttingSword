@@ -1,8 +1,10 @@
-<?php 
+<?php
 
 //Teste
 Router::get('/teste', 'TesteController@getUser');
-// Router::post('/teste', 'TesteController@createUser');
+
 Router::post('/teste', 'TesteController@login');
 
-Router::get('/getHistory', 'HistoryController@getGameHistoryById');
+
+// History
+Router::get('/history/{userId}', 'HistoryController@getGlobalGameHistory');

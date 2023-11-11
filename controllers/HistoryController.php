@@ -4,10 +4,11 @@ class HistoryController
 {
     public function index()
     {
-        require("./view/historic.php");
+        require("./view/history.php");
     }
 
-    public function getGameHistoryById(){
-        echo json_encode(GameHistory::getGameHistoryByUserId(1));
+    public function getGlobalGameHistory($params)
+    {
+        echo json_encode(GlobalGameHistory::getGlobalGameHistoryByUserId($params['userId']));
     }
 }

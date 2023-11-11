@@ -1,6 +1,6 @@
 <?php
 
-class LeagueUsersHistory
+class LeagueGameHistory
 {
     private $id;
     private $leagueId;
@@ -83,7 +83,7 @@ class LeagueUsersHistory
     public static function getUserLeagueHistoryList($leagueId, $userId)
     {
         $sql = new Mysql();
-        $results = $sql->select("SELECT * FROM LeagueUsersHistory WHERE userId = :USER_ID AND leagueId = :LEAGUE_ID ORDER BY date ASC", array(":LEAGUE_ID" => $leagueId, ":USER_ID" => $userId));
+        $results = $sql->select("SELECT * FROM LeagueGameHistory WHERE userId = :USER_ID AND leagueId = :LEAGUE_ID ORDER BY date ASC", array(":LEAGUE_ID" => $leagueId, ":USER_ID" => $userId));
 
         return $results;
     }
@@ -93,7 +93,7 @@ class LeagueUsersHistory
         $leaguesList = [];
 
         $sql = new Mysql();
-        $results = $sql->select("SELECT DISTINCT * FROM LeagueUsersHistory WHERE userId = :USER_ID ORDER BY leagueId ASC", array(":USER_ID" => $userId));
+        $results = $sql->select("SELECT DISTINCT * FROM LeagueGameHistory WHERE userId = :USER_ID ORDER BY leagueId ASC", array(":USER_ID" => $userId));
         if (count($results) > 0) {
             foreach ($results as $result) {
                 $league = new Leagues();
@@ -111,7 +111,7 @@ class LeagueUsersHistory
         $sql = new Mysql();
         $date = (new Datetime('now'))->format('Y-m-d H:i:s');
 
-        $sql->executeQuery("INSERT INTO LeagueUsersHistory(
+        $sql->executeQuery("INSERT INTO LeagueGameHistory(
             leagueId, userId, timeLeft, victory, matchPoints, date
             ) 
             VALUES (
@@ -131,7 +131,7 @@ class LeagueUsersHistory
     public function loadUserLeagueHistoryById($Id)
     {
         $sql = new Mysql();
-        $results = $sql->select("SELECT * FROM GlobalUsersHistory WHERE id = :ID", array(":ID" => $Id));
+        $results = $sql->select("SELECT * FROM CasualGameHistory WHERE id = :ID", array(":ID" => $Id));
         if (count($results) > 0) {
             $row = $results[0];
             $this->setId($row['id']);

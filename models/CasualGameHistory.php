@@ -1,6 +1,6 @@
 <?php
 
-class GlobalUsersHistory
+class CasualGameHistory
 {
     private $id;
     private $userId;
@@ -83,7 +83,7 @@ class GlobalUsersHistory
     public static function getUserHistoryByUserId($userId)
     {
         $sql = new Mysql();
-        $results = $sql->select("SELECT * FROM GlobalUsersHistory WHERE userId = :USER_ID ORDER BY date ASC", array(":USER_ID" => $userId));
+        $results = $sql->select("SELECT * FROM CasualGameHistory WHERE userId = :USER_ID ORDER BY date ASC", array(":USER_ID" => $userId));
         return $results;
     }
 
@@ -92,7 +92,7 @@ class GlobalUsersHistory
         $sql = new Mysql();
         $date = (new Datetime('now'))->format('Y-m-d H:i:s');
 
-        $sql->executeQuery("INSERT INTO GlobalUsersHistory(
+        $sql->executeQuery("INSERT INTO CasualGameHistory(
             userId, timeLeft, victory, matchPoints, matchLevel, date
             ) 
             VALUES (
@@ -112,7 +112,7 @@ class GlobalUsersHistory
     public function loadUserGlobalHistoryById($id)
     {
         $sql = new Mysql();
-        $results = $sql->select("SELECT * FROM GlobalUsersHistory WHERE id = :ID", array(":ID" => $id));
+        $results = $sql->select("SELECT * FROM CasualGameHistory WHERE id = :ID", array(":ID" => $id));
         if (count($results) > 0) {
             $row = $results[0];
             $this->setId($row['id']);

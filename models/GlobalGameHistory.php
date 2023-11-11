@@ -1,8 +1,8 @@
 <?php
 
-class GameHistory
+class GlobalGameHistory
 {
-    public static function getGameHistoryByUserId($userId)
+    public static function getGlobalGameHistoryByUserId($userId)
     {
         $sql = new Mysql();
         $results = $sql->select(
@@ -13,7 +13,7 @@ class GameHistory
             h.matchPoints as 'points', 
             h.timeleft as 'timeLeft', 
             h.date as 'date' 
-            from GlobalUsersHistory as h 
+            from CasualGameHistory as h 
             INNER JOIN Users as u 
             ON h.userId = u.id and u.id = :USER_ID 
 
@@ -29,7 +29,7 @@ class GameHistory
             (
                 (
                     Users as u 
-                    INNER JOIN LeagueUsersHistory as lh 
+                    INNER JOIN LeagueGameHistory as lh 
                     ON lh.userId = u.id and u.id = :USER_ID
                 ) INNER JOIN Leagues as l 
                   on l.id = lh.userId
