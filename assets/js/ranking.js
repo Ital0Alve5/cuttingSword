@@ -1,9 +1,6 @@
-/**
- *
- * TODO: O id da liga está mockado. Precisa entrar na liga para ficar dinâmico
- *
- */
 (async function () {
+  const leagueId = await getLeagueId();
+
   async function getCasualTotalHistory() {
     const ranking = await fetch("http://localhost:5200/ranking/total/0");
     const rankingJson = await ranking.json();
@@ -17,13 +14,17 @@
   }
 
   async function getLeagueTotalHistory() {
-    const ranking = await fetch("http://localhost:5200/ranking/total/1");
+    const ranking = await fetch(
+      `http://localhost:5200/ranking/total/${leagueId}`
+    );
     const rankingJson = await ranking.json();
     return rankingJson;
   }
 
   async function getLeagueWeekHistory() {
-    const ranking = await fetch("http://localhost:5200/ranking/week/1");
+    const ranking = await fetch(
+      `http://localhost:5200/ranking/week/${leagueId}`
+    );
     const rankingJson = await ranking.json();
     return rankingJson;
   }
@@ -67,8 +68,6 @@
     const weekRankingTable = document.querySelector(
       ".weekRankingContainer tbody"
     );
-    console.log(await getLeagueTotalHistory());
-    console.log(await getLeagueWeekHistory());
 
     const leagueTotalHistory = await getLeagueTotalHistory();
     const leagueWeekHistory = await getLeagueWeekHistory();
@@ -95,13 +94,24 @@
   }
 
   async function mountTables() {
-    const casual = true;
+    const casual = leagueId === "ranking" ? true : false;
     if (casual) await mountCasualTables();
     else {
-      const leagueName = "teste";
-      document.querySelector("h1").innerText = `Ranking da liga ${leagueName}`;
+      document.querySelector("h1").innerText = `Ranking da liga ${
+        (await getLeagueName()).leagueName
+      }`;
       await mountLeagueTables();
     }
+  }
+
+  async function getLeagueName() {
+    const league = await fetch(`http://localhost:5200/league/${leagueId}`);
+    const leagueJson = await league.json();
+    return leagueJson;
+  }
+
+  async function getLeagueId() {
+    return window.location.href.split("/").pop();
   }
 
   await mountTables();
