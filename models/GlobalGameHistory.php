@@ -39,6 +39,10 @@ class GlobalGameHistory
             array(":USER_ID" => $userId)
         );
 
+        foreach ($results as &$result)
+            $result['date'] = date('d/m/Y H:i:s', strtotime($result['date']));
+
+
         return $results;
     }
 }
