@@ -91,7 +91,7 @@ class Users
     public static function createUser($name, $email, $password)
     {
         $sql = new Mysql();
-        $sql->executeQuery("INSERT INTO Users(name, email, password) VALUES (:NAME, :EMAIL, :PASSWORD)", array(":NAME" => $name, ":EMAIL" => $email, ":PASSWORD" => $password));
+        $sql->executeQuery("INSERT INTO Users(name, email, password) VALUES (:NAME, :EMAIL, :PASSWORD)", array(":NAME" => $name, ":EMAIL" => $email, ":PASSWORD" => md5($password)));
         return $sql->getConnection()->lastInsertId();
     }
 
