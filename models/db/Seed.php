@@ -55,12 +55,12 @@ class Seed
     {
         $sql = new Mysql();
         return $sql->executeQuery("
-            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 1, 40, 'normal', '2023-11-08 11:21:26');
-            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 2, 23, 1, 40, 'hard', '2023-11-08 11:22:26');
-            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 3, 23, 0, -40, 'normal', '2023-11-08 11:23:26');
-            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 3, 24, 1, 40, 'hard', '2023-11-08 11:24:26');
-            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 0, -10, 'hard', '2023-11-08 11:25:26');
-            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 1, 23, 1, 40, 'very hard', '2023-11-08 11:26:26');
+            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, date) VALUES (1, 1, 23, 1, 40, '2023-11-08 11:21:26');
+            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, date) VALUES (2, 2, 23, 1, 40, '2023-11-08 11:22:26');
+            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, date) VALUES (1, 3, 23, 0, -40, '2023-11-08 11:23:26');
+            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, date) VALUES (2, 3, 24, 1, 40, '2023-11-08 11:24:26');
+            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, date) VALUES (1, 1, 23, 0, -10, '2023-11-08 11:25:26');
+            INSERT INTO LeagueUsersHistory(leagueId, userId, timeLeft, victory, matchPoints, date) VALUES (2, 1, 23, 1, 40, '2023-11-08 11:26:26');
         ");
     }
 }

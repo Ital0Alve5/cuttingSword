@@ -7,7 +7,6 @@ class LeagueUsersHistory
     private $userId;
     private $timeLeft;
     private $victory;
-    private $matchLevel;
     private $matchPoints;
     private $date;
 
@@ -71,16 +70,6 @@ class LeagueUsersHistory
         return $this->matchPoints;
     }
 
-    public function setMatchLevel($matchLevel)
-    {
-        $this->matchLevel = $matchLevel;
-    }
-
-    public function getMatchLevel()
-    {
-        return $this->matchLevel;
-    }
-
     public function setDate($date)
     {
         $this->date = $date;
@@ -117,23 +106,22 @@ class LeagueUsersHistory
         return $leaguesList;
     }
 
-    public static function createLeagueUserHistory($leagueId, $userId, $timeLeft, $victory, $matchPoints, $matchLevel)
+    public static function createLeagueUserHistory($leagueId, $userId, $timeLeft, $victory, $matchPoints)
     {
         $sql = new Mysql();
         $date = (new Datetime('now'))->format('Y-m-d H:i:s');
 
         $sql->executeQuery("INSERT INTO LeagueUsersHistory(
-            leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date
+            leagueId, userId, timeLeft, victory, matchPoints, date
             ) 
             VALUES (
-                :LEAGUE_ID, :USER_ID, :TIME_LEFT, :VICTORY, :MATCH_POINTS, :MATCH_LEVEL, :DATE
+                :LEAGUE_ID, :USER_ID, :TIME_LEFT, :VICTORY, :MATCH_POINTS, :DATE
                 )", array(
             ":LEAGUE_ID" => $leagueId,
             ":USER_ID" => $userId,
             ":TIME_LEFT" => $timeLeft,
             ":VICTORY" => $victory,
             ":MATCH_POINTS" => $matchPoints,
-            ":MATCH_LEVEL" => $matchLevel,
             ":DATE" => $date
         ));
 
@@ -152,7 +140,6 @@ class LeagueUsersHistory
             $this->setTimeLeft($row['timeLeft']);
             $this->setVictory($row['victory']);
             $this->setMatchPoints($row['matchPoints']);
-            $this->setMatchLevel($row['matchLevel']);
             $this->setDate($row['date']);
         }
     }
@@ -166,7 +153,6 @@ class LeagueUsersHistory
             "timeLeft" => $this->getTimeLeft(),
             "victory" => $this->getVictory(),
             "matchPoints" => $this->getMatchPoints(),
-            "matchLevel" => $this->getMatchLevel(),
             "date" => $this->getDate(),
         ));
     }

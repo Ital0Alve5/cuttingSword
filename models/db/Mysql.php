@@ -58,11 +58,12 @@ class Mysql extends PDO
         CREATE TABLE IF NOT EXISTS GlobalUsersHistory(
             id INTEGER NOT NULL AUTO_INCREMENT,
             userId INTEGER NOT NULL,
+            mode VARCHAR(10),
             victory BOOLEAN,
             timeLeft INTEGER,
             matchLevel VARCHAR(10),
             matchPoints INTEGER,
-            date TIMESTAMP,
+            date TIMESTAMP UNIQUE,
             CONSTRAINT pk_globalUsersHistory PRIMARY KEY (id),
             CONSTRAINT fk_userGlobalHistory FOREIGN KEY (userId) REFERENCES Users(id)
         );
@@ -80,7 +81,6 @@ class Mysql extends PDO
             date TIMESTAMP,
             victory BOOLEAN,
             timeLeft INTEGER,
-            matchLevel VARCHAR(10),
             matchPoints INTEGER,
             CONSTRAINT fk_leagueIdHistory FOREIGN KEY (leagueId) REFERENCES Leagues(id),
             CONSTRAINT fk_leagueUserHistory FOREIGN KEY (userId) REFERENCES Users(id),
