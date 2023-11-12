@@ -22,4 +22,16 @@
                 require("./view/entry.php");
             }
         }
+
+//Deve ser chamda quando o usuário quer sair da sessão
+        public static function Logout(){
+            if(!isset($_SESSION)) 
+            { 
+                session_start(); 
+            }
+            session_unset();
+            session_destroy();
+            require("./home/entry.php");
+
+        }
     }
