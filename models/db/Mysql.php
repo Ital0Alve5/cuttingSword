@@ -74,6 +74,13 @@ class Mysql extends PDO
             CONSTRAINT pk_leagues PRIMARY KEY (id),
             CONSTRAINT fk_leagueCreatorId FOREIGN KEY (creatorId) REFERENCES Users(id)
         );
+        CREATE TABLE IF NOT EXISTS UserLeagues(
+            leagueId INTEGER NOT NULL,
+            userId INTEGER NOT NULL,
+            CONSTRAINT fk_leagueId FOREIGN KEY (leagueId) REFERENCES Leagues(id),
+            CONSTRAINT fk_userId FOREIGN KEY (userId) REFERENCES Users(id),
+            CONSTRAINT pk_userLeagues PRIMARY KEY (leagueId, userId)
+        );
         CREATE TABLE IF NOT EXISTS LeagueGameHistory(
             leagueId INTEGER NOT NULL,
             userId INTEGER NOT NULL,
