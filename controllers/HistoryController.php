@@ -1,24 +1,19 @@
 <?php
 
-class HistoryController
+class HistoryController extends Controller
 {
     public function index()
     {
-        //Usuário obrigado a estar logado
-        SessionController::SessionProtection();
-
-        require("./view/history.php");
+        $this->protectedView("history");
     }
 
-    public function getGlobalGameHistory($params)
+    public function getGlobalGameHistory()
     {
-        //Usuário obrigado a estar logado
-        SessionController::SessionProtection();     
-
-        //Sanitização de url com leagueID malicioso
-        if(!SanitizeController::sanitizeNumber($params)){
-            echo json_encode(["error" => true, "message" => "ID de usuário inválido"]);
+        if (!Session::sessionProtection()) {
+            echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
+            return;
         }
-        echo json_encode(GlobalGameHistory::getGlobalGameHistoryByUserId($params['userId']));
+
+        echo json_encode(GlobalGameHistory::getGlobalGameHistoryByUserId($_SESSION['userId']), JSON_UNESCAPED_UNICODE);
     }
 }

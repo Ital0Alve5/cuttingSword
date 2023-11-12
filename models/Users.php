@@ -6,6 +6,7 @@ class Users
     private $userName;
     private $email;
     private $password;
+    private $leaguesList;
 
     public function setUserId($id)
     {
@@ -47,6 +48,16 @@ class Users
         $this->password = $password;
     }
 
+    public function getLeaguesList()
+    {
+        return $this->leaguesList;
+    }
+
+    public function setLeaguesList($leaguesList)
+    {
+        $this->leaguesList = $leaguesList;
+    }
+
     public function loadUserById($id)
     {
         $sql = new Mysql();
@@ -57,6 +68,15 @@ class Users
             $this->setUserName($row['name']);
             $this->setUserEmail($row['email']);
             $this->setUserPassword($row['password']);
+        }
+    }
+
+    public function loadUserLeaguesById($id)
+    {
+        $sql = new Mysql();
+        $results = $sql->select("SELECT ul.leagueId, l.name FROM UserLeagues as ul INNER JOIN Leagues as l ON ul.leagueId = l.id AND ul.userId = :ID;", array(":ID" => $id));
+        if (count($results) > 0) {
+            $this->setLeaguesList($results);
         }
     }
 
@@ -122,12 +142,15 @@ class Users
         ));
     }
 
-    public function emailExists($email){
+    public function emailExists($email)
+    {
         $sql = new Mysql();
         $results = $sql->select("SELECT * FROM Users WHERE email = :EMAIL", array(":EMAIL" => $email));
         return count($results) > 0;
     }
-    public function nameExists($userName){
+
+    public function nameExists($userName)
+    {
         $sql = new Mysql();
         $results = $sql->select("SELECT * FROM Users WHERE name = :NAME", array(":NAME" => $userName));
         return count($results) > 0;

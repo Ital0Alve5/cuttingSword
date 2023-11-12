@@ -12,4 +12,9 @@ Router::get('/history', 'HistoryController@index');
 
 //ranking
 Router::get('/ranking', 'RankingController@index');
-Router::get('/ranking/{leagueId}', 'RankingController@index');
+
+//entry
+Router::get('/entry', 'EntryController@index');
+
+//leagues
+Router::get('/leagues', 'LeagueController@index');

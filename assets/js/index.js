@@ -1,6 +1,6 @@
 (async function () {
   // async function getUser() {
-  //   const response = await fetch("http://localhost:5200/teste");
+  //   const response = await fetch("http://127.0.0.1:5200/teste");
   //   const user = await response.json();
   //   console.log(user);
 
@@ -9,7 +9,7 @@
   // }
 
   // async function postUser() {
-  //   const response = await fetch("http://localhost:5200/teste", {
+  //   const response = await fetch("http://127.0.0.1:5200/teste", {
   //     method: "POST",
   //     body: JSON.stringify({
   //       name: "mozau",
@@ -22,7 +22,7 @@
   // }
 
   // async function login() {
-  //   const response = await fetch("http://localhost:5200/teste", {
+  //   const response = await fetch("http://127.0.0.1:5200/teste", {
   //     method: "POST",
   //     body: JSON.stringify({
         // email: "italo_alves_@outlook.com",

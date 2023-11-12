@@ -1,6 +1,6 @@
 <?php
 
-class GameController
+class GameController extends Controller
 {
     public function index()
     {

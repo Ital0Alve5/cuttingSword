@@ -2,20 +2,20 @@
   const leagueId = await getLeagueId();
 
   async function getCasualTotalHistory() {
-    const ranking = await fetch("http://localhost:5200/ranking/total/0");
+    const ranking = await fetch("http://127.0.0.1:5200/ranking/total/0");
     const rankingJson = await ranking.json();
     return rankingJson;
   }
 
   async function getCasualWeekHistory() {
-    const ranking = await fetch("http://localhost:5200/ranking/week/0");
+    const ranking = await fetch("http://127.0.0.1:5200/ranking/week/0");
     const rankingJson = await ranking.json();
     return rankingJson;
   }
 
   async function getLeagueTotalHistory() {
     const ranking = await fetch(
-      `http://localhost:5200/ranking/total/${leagueId}`
+      `http://127.0.0.1:5200/ranking/total/${leagueId}`
     );
     const rankingJson = await ranking.json();
     return rankingJson;
@@ -23,7 +23,7 @@
 
   async function getLeagueWeekHistory() {
     const ranking = await fetch(
-      `http://localhost:5200/ranking/week/${leagueId}`
+      `http://127.0.0.1:5200/ranking/week/${leagueId}`
     );
     const rankingJson = await ranking.json();
     return rankingJson;
@@ -105,7 +105,7 @@
   }
 
   async function getLeagueName() {
-    const league = await fetch(`http://localhost:5200/league/${leagueId}`);
+    const league = await fetch(`http://127.0.0.1:5200/league/${leagueId}`);
     const leagueJson = await league.json();
     return leagueJson;
   }
