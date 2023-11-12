@@ -125,19 +125,11 @@ class Users
     public function emailExists($email){
         $sql = new Mysql();
         $results = $sql->select("SELECT * FROM Users WHERE email = :EMAIL", array(":EMAIL" => $email));
-        if (count($results) > 0) {
-            return true;
-        }else{
-            return false;
-        }
+        return count($results) > 0;
     }
     public function nameExists($userName){
         $sql = new Mysql();
         $results = $sql->select("SELECT * FROM Users WHERE name = :NAME", array(":NAME" => $userName));
-        if (count($results) > 0) {
-            return true;
-        }else{
-            return false;
-        }
+        return count($results) > 0;
     }
 }

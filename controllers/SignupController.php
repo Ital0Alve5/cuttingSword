@@ -13,7 +13,7 @@ class SignupController{
         }else if(strlen($data["password"]) > 20){
             echo json_encode(["error" => true, "message" => "Senha deve ter no máximo 20 caracteres"], JSON_UNESCAPED_UNICODE);
         }else{
-            $userId = $user->createUser($data["name"], $data["email"], $data["password"]);
+            $userId = Users::createUser($data["name"], $data["email"], $data["password"]);
             echo json_encode(["error"=> false, "message"=> "Cadastro concluído com sucesso", "id"=> $userId, "name"=>$data['name']], JSON_UNESCAPED_UNICODE);
         }
     }
