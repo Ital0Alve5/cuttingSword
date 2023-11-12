@@ -19,7 +19,8 @@
                 session_start(); 
             } 
             if (!isset($_SESSION['userId'])){
-                require("./view/entry.php");
+                header("Location: ../view/entry.php");
+                exit();
             }
         }
 
