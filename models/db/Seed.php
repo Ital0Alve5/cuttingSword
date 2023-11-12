@@ -7,6 +7,7 @@ class Seed
         Seed::seedUsers();
         Seed::seedCasualGameHistory();
         Seed::seedLeagues();
+        Seed::seedUserLeagues();
         Seed::seedLeagueGameHistory();
     }
 
@@ -50,6 +51,21 @@ class Seed
             INSERT INTO Leagues(creatorId, name, secretKey) VALUES (2, 'liga2', '57285571deec8d096491da6f2bf7f2a6');
         ");
     }
+
+    private static function seedUserLeagues()
+    {
+        $sql = new Mysql();
+        return $sql->executeQuery("
+            INSERT INTO UserLeagues(leagueId, userId) VALUES (1, 1);
+            INSERT INTO UserLeagues(leagueId, userId) VALUES (1, 3);
+            INSERT INTO UserLeagues(leagueId, userId) VALUES (2, 2);
+            INSERT INTO UserLeagues(leagueId, userId) VALUES (2, 3);
+            INSERT INTO UserLeagues(leagueId, userId) VALUES (2, 1);
+            INSERT INTO UserLeagues(leagueId, userId) VALUES (1, 4);
+            INSERT INTO UserLeagues(leagueId, userId) VALUES (2, 4);
+        ");
+    }
+
 
     private static function seedLeagueGameHistory()
     {
