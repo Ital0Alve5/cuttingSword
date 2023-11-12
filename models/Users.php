@@ -109,7 +109,7 @@ class Users
     public function updateUserById($name, $email, $password)
     {
         $sql = new Mysql();
-        return $sql->executeQuery("UPDATE Users SET name = :NAME, email = :EMAIL, password = :PASSWORD WHERE id = :ID", array(":NAME" => $name, ":EMAIL" => $email, ":PASSWORD" => $password, ":ID" => $this->getUserId()))->rowCount();
+        return $sql->executeQuery("UPDATE Users SET name = :NAME, email = :EMAIL, password = :PASSWORD WHERE id = :ID", array(":NAME" => $name, ":EMAIL" => $email, ":PASSWORD" => md5($password), ":ID" => $this->getUserId()))->rowCount();
     }
 
     public function __toString()
