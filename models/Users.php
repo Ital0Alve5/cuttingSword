@@ -121,4 +121,15 @@ class Users
             "password" => $this->getUserPassword(),
         ));
     }
+
+    public function emailExists($email){
+        $sql = new Mysql();
+        $results = $sql->select("SELECT * FROM Users WHERE email = :EMAIL", array(":EMAIL" => $email));
+        return count($results) > 0;
+    }
+    public function nameExists($userName){
+        $sql = new Mysql();
+        $results = $sql->select("SELECT * FROM Users WHERE name = :NAME", array(":NAME" => $userName));
+        return count($results) > 0;
+    }
 }
