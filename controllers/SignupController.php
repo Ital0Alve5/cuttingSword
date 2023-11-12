@@ -14,6 +14,7 @@ class SignupController{
             echo json_encode(["error" => true, "message" => "Senha deve ter no máximo 20 caracteres"], JSON_UNESCAPED_UNICODE);
         }else{
             $userId = Users::createUser($data["name"], $data["email"], $data["password"]);
+            SessionController::createSession($userId, $data['email']);
             echo json_encode(["error"=> false, "message"=> "Cadastro concluído com sucesso", "id"=> $userId, "name"=>$data['name']], JSON_UNESCAPED_UNICODE);
         }
     }
