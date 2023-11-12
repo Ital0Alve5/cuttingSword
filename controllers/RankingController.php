@@ -17,7 +17,7 @@ class RankingController
 
         //Sanitização de url com leagueID malicioso
         if(!SanitizeController::sanitizeNumber($params)){
-            echo json_encode(["error" => $true, "message" => "ID de liga inválido"]);
+            echo json_encode(["error" => true, "message" => "ID de liga inválido"]);
         }
 
         if ($params['leagueId'] === "0")
@@ -32,9 +32,9 @@ class RankingController
 
         //Sanitização de url com leagueID malicioso
         if(!SanitizeController::sanitizeNumber($params)){
-            echo json_encode(["error" => $true, "message" => "ID de liga inválido"]);
+            echo json_encode(["error" => true, "message" => "ID de liga inválido"]);
         }
-        
+
         if ($params['leagueId'] === "0")
             echo json_encode(Ranking::getCasualWeekRanking());
         else echo json_encode(Ranking::getLeagueWeekRanking($params['leagueId']));

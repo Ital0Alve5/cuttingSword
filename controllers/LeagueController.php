@@ -10,7 +10,7 @@ class LeagueController
 
         //Sanitização de url com leagueID malicioso
         if(!SanitizeController::sanitizeNumber($params)){
-            echo json_encode(["error" => $true, "message" => "ID de liga inválido"]);
+            echo json_encode(["error" => true, "message" => "ID de liga inválido"]);
         }
         $league = new Leagues();
         $league->loadLeagueById($params['leagueId']);

@@ -17,7 +17,7 @@ class HistoryController
 
         //Sanitização de url com leagueID malicioso
         if(!SanitizeController::sanitizeNumber($params)){
-            echo json_encode(["error" => $true, "message" => "ID de usuário inválido"]);
+            echo json_encode(["error" => true, "message" => "ID de usuário inválido"]);
         }
         echo json_encode(GlobalGameHistory::getGlobalGameHistoryByUserId($params['userId']));
     }
