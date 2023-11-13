@@ -17,7 +17,7 @@ class CreateLeagueController extends Controller{
         } else if (!Sanitize::sanitizePassword($data['leaguePassword'])) {
             echo json_encode(['error'=> true, 'message'=> 'Caracteres inválidos na senha'], JSON_UNESCAPED_UNICODE);
         } else if (!Sanitize::sanitizeName($data['leagueName'])) {
-            echo json_encode(['error'=> true, 'message'=> 'Caracteres inválidos no nome'], JSON_UNESCAPED_UNICODE);            
+            echo json_encode(['error'=> true, 'message'=> 'Senha inválida'], JSON_UNESCAPED_UNICODE);            
         } else {
             $leagueId = Leagues::createLeague($_SESSION['userId'], $data['leagueName'], $data['leaguePassword']);
             echo json_encode(['error'=> false, 'message'=> 'Liga criada com sucesso', 'leagueId'=> $leagueId, 'leagueName'=> $data['leagueName']], JSON_UNESCAPED_UNICODE); 
