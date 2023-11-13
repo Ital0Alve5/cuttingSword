@@ -135,6 +135,12 @@ class Leagues
         return $results;
     }
 
+    public function leagueExists($leagueName)
+    {
+        $sql = new Mysql();
+        $results = $sql->select("SELECT * FROM Leagues WHERE name = :NAME;", array(":NAME" => $leagueName));
+        return count($results) > 0;
+    }
     public function __toString()
     {
         return json_encode(array(
