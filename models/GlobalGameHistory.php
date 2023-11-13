@@ -1,5 +1,9 @@
 <?php
 
+namespace models;
+
+use models\db\Mysql;
+
 class GlobalGameHistory
 {
     public static function getGlobalGameHistoryByUserId($userId)

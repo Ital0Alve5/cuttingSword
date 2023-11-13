@@ -1,5 +1,9 @@
 <?php
 
+namespace controllers;
+
+use models\Session;
+
 class Controller
 {
     protected function redirect($url, $statusCode = 302)

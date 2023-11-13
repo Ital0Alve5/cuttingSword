@@ -1,5 +1,10 @@
 <?php
 
+namespace models;
+
+use models\db\Mysql;
+
+
 class Ranking
 {
     public static function getCasualTotalRanking()

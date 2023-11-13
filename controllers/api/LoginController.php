@@ -1,5 +1,11 @@
 <?php
 
+namespace controllers\api;
+
+use controllers\Controller;
+use models\Session;
+use models\Users;
+
 class LoginController extends Controller
 {
     public function index($data)

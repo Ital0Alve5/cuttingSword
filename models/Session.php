@@ -1,5 +1,6 @@
 <?php
 
+namespace models;
 class Session
 {
     public static function createSession($userId, $email)

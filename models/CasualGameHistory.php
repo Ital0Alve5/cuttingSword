@@ -1,5 +1,10 @@
 <?php
 
+namespace models;
+
+use \DateTime;
+use models\db\Mysql;
+
 class CasualGameHistory
 {
     private $id;

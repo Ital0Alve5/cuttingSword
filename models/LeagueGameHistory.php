@@ -1,5 +1,11 @@
 <?php
 
+namespace models;
+
+use \DateTime;
+use models\db\Mysql;
+
+
 class LeagueGameHistory
 {
     private $id;

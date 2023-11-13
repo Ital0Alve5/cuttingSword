@@ -1,5 +1,8 @@
 <?php
 
+namespace controllers\web;
+
+
 class EntryController
 {
     public function index()

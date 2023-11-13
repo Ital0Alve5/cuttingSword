@@ -1,20 +1,20 @@
 <?php
 
 // Home
-Router::get('/', 'HomeController@index');
-Router::get('/home', 'HomeController@index');
+Router::get('/', 'controllers\web\HomeController@index');
+Router::get('/home', 'controllers\web\HomeController@index');
 
 // Game
-Router::get('/game', 'GameController@index');
+Router::get('/game', 'controllers\web\GameController@index');
 
 //history
-Router::get('/history', 'HistoryController@index');
+Router::get('/history', 'controllers\web\HistoryController@index');
 
 //ranking
-Router::get('/ranking', 'RankingController@index');
+Router::get('/ranking', 'controllers\web\RankingController@index');
 
 //entry
-Router::get('/entry', 'EntryController@index');
+Router::get('/entry', 'controllers\web\EntryController@index');
 
 //leagues
-Router::get('/leagues', 'LeagueController@index');
+Router::get('/leagues', 'controllers\web\LeagueController@index');

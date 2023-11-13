@@ -1,5 +1,9 @@
 <?php
 
+namespace models;
+
+use models\db\Mysql;
+
 class Leagues
 {
     private $id;

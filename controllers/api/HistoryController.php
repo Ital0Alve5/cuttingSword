@@ -1,12 +1,13 @@
 <?php
 
+namespace controllers\api;
+
+use controllers\Controller;
+use models\Session;
+use models\GlobalGameHistory;
+
 class HistoryController extends Controller
 {
-    public function index()
-    {
-        $this->protectedView("history");
-    }
-
     public function getGlobalGameHistory()
     {
         if (!Session::sessionProtection()) {

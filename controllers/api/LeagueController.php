@@ -1,13 +1,14 @@
 <?php
 
+namespace controllers\api;
+
+use controllers\Controller;
+use models\Session;
+use models\Leagues;
+use models\Users;
+
 class LeagueController extends Controller
 {
-
-    public function index()
-    {
-        $this->protectedView('leagues');
-    }
-
     public function getLeagueNameByLeagueId($params)
     {
         if (!Session::sessionProtection()) {

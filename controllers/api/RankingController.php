@@ -1,12 +1,13 @@
 <?php
 
+namespace controllers\api;
+
+use controllers\Controller;
+use models\Session;
+use models\Ranking;
+
 class RankingController extends Controller
 {
-    public function index()
-    {
-        $this->protectedView('ranking');
-    }
-
     public function getTotalRanking($params)
     {
         if (!Session::sessionProtection()) {

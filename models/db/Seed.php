@@ -1,5 +1,6 @@
 <?php
 
+namespace models\db;
 class Seed
 {
     public static function seedDatabase()
