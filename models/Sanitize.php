@@ -21,4 +21,20 @@ class Sanitize{
         $username = filter_var($username, FILTER_SANITIZE_SPECIAL_CHARS);
         return preg_match('/^[a-zA-Z0-9_-]+$/', $username);
     }
+
+    public static function autoSanitize($data){
+
+        if ($data['email' != NULL]) {                           //se o $data[email] existir
+            if (!Sanitize::sanitizeEmail($data['email'])) {     //se der falso retorna o false
+                return false;
+            }
+        }
+
+        if ($data['password' != NULL]) {
+            if (!Sanitize::sanitizePassword($data['password'])) {
+                return false;
+            }
+        }
+        return true;
+    }
 }

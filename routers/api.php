@@ -23,3 +23,7 @@ Router::get('/ranking/week/{leagueId}}', 'RankingController@getWeekRanking');
 
 //logout
 Router::get('/logout', 'LogoutController@index');
+
+
+//createleague
+Router::post('/entryLeague', 'createLeagueController@createLeague');

@@ -18,3 +18,6 @@ Router::get('/entry', 'EntryController@index');
 
 //leagues
 Router::get('/leagues', 'LeagueController@index');
+
+//createleague
+Router::get('createLeague','CreateLeagueController@index');
