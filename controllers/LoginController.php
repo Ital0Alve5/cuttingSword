@@ -4,7 +4,7 @@ class LoginController extends Controller
 {
     public function index($data)
     {
-        if (!Sanitize::autoSanitize($data)) echo json_encode(["error" => true, "message" => "Caracteres inválidos"], JSON_UNESCAPED_UNICODE);
+        if (!Sanitize::autoSanitize($data)) echo json_encode(["error" => true, "message" => "Caracteres inválidos"], JSON_UNESCAPED_UNICODE);  //teste, não sei se isso funciona
         $user = new Users();
         $user->loadUserByEmail($data['email']);
         if ($user->getUserEmail() && $user->getUserPassword() === md5($data['password'])) {

@@ -22,6 +22,7 @@ class Sanitize{
         return preg_match('/^[a-zA-Z0-9_-]+$/', $username);
     }
 
+   //Preciso saber se isso funciona, te explico na facul 
     public static function autoSanitize($data){
 
         if ($data['email' != NULL]) {                           //se o $data[email] existir
