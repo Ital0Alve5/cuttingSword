@@ -143,7 +143,7 @@ class Leagues
     {
         $sql = new Mysql();
         $results = $sql->select("SELECT * FROM Leagues WHERE name = :NAME;", array(":NAME" => $leagueName));
-        return count($results) > 0;
+        return count($results);
     }
 
     public function __toString()
