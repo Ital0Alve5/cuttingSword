@@ -25,4 +25,4 @@ Router::get('/ranking/week/{leagueId}}', 'controllers\api\RankingController@getW
 Router::get('/logout', 'controllers\api\LogoutController@index');
 
 //Logar liga
-Router::post('/league/choose', 'controllers\api\ChoseLeagueController@index');
+Router::post('/league/choose', 'controllers\api\LeagueController@ChooseLeague');
