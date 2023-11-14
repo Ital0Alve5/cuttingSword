@@ -59,6 +59,7 @@ class LeagueController extends Controller
         } else {
             $leagueId = Leagues::createLeague($_SESSION['userId'], $data['leagueName'], md5($data['leaguePassword']));
             Users::linkUserToLeague($_SESSION['userId'], $leagueId);
+            Session::createSession($_SESSION['userId'], $_SESSION['email'], $leagueId);
             echo json_encode(['error' => false, 'message' => 'Liga criada com sucesso', 'leagueId' => $leagueId, 'leagueName' => $data['leagueName']], JSON_UNESCAPED_UNICODE);
         }
     }

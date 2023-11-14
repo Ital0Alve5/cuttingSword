@@ -19,3 +19,5 @@ Router::get('/entry', 'controllers\web\EntryController@index');
 //leagues
 Router::get('/leagues', 'controllers\web\LeagueController@leaguesList');
 Router::get('/create/leagues', 'controllers\web\LeagueController@createLeague');
+
+//login liga -> falta fazer

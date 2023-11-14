@@ -14,7 +14,7 @@ class LoginController extends Controller
         $user = new Users();
         $user->loadUserByEmail($data['email']);
         if ($user->getUserEmail() && $user->getUserPassword() === md5($data['password'])) {
-            Session::createSession($user->getUserId(), $user->getUserEmail());
+            Session::createSession($user->getUserId(), $user->getUserEmail(), 0);
             echo $user;
         } else {
             echo json_encode(["error" => true, "message" => "Usuário ou senha incorretos"], JSON_UNESCAPED_UNICODE);

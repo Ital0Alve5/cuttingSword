@@ -3,11 +3,12 @@
 namespace models;
 class Session
 {
-    public static function createSession($userId, $email)
+    public static function createSession($userId, $email, $leagueId)
     {
         if (session_id() == '') session_start();
         $_SESSION['userId'] = $userId;
         $_SESSION['email'] = $email;
+        $_SESSION['leagueId'] = $leagueId;
     }
 
     public static function sessionProtection()

@@ -139,7 +139,7 @@ class Leagues
         return $results;
     }
 
-    public function leagueExists($leagueName)
+    public static function leagueExists($leagueName)
     {
         $sql = new Mysql();
         $results = $sql->select("SELECT * FROM Leagues WHERE name = :NAME;", array(":NAME" => $leagueName));
