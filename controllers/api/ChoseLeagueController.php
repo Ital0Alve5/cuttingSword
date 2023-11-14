@@ -12,6 +12,11 @@ class ChoseLeagueController extends Controller
 {
     public function index($data){
 
+        if (!Session::sessionProtection()) {
+            echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
         $league = new Leagues();
         $league->loadLeagueByName($data['leagueName']);
         $user = new Users();
