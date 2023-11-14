@@ -4,8 +4,6 @@ namespace models\db;
 
 use \PDO;
 
-// require('./models/db/Seed.php');
-
 class Mysql extends PDO
 {
 

@@ -3,7 +3,7 @@
 //Leagues
 Router::get('/league/{leagueId}', 'controllers\api\LeagueController@getLeagueNameByLeagueId');
 Router::get('/user/leagues', 'controllers\api\LeagueController@getUserLeagues');
-
+Router::post('/create/leagues', 'controllers\api\LeagueController@createLeague');
 
 // History
 Router::get('/user/history', 'controllers\api\HistoryController@getGlobalGameHistory');

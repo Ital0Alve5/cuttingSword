@@ -84,6 +84,20 @@ class Users
         }
     }
 
+    public static function isUserPartOfLeague($userId, $leagueId)
+    {
+        $sql = new Mysql();
+        $results = $sql->select("SELECT * FROM UserLeagues WHERE userId = :USER_ID AND leagueId = :LEAGUE_ID;", array(":USER_ID" => $userId, ":LEAGUE_ID" => $leagueId));
+        return count($results) > 0;
+    }
+
+    public static function linkUserToLeague($userId, $leagueId)
+    {
+        $sql = new Mysql();
+        $sql->executeQuery("INSERT INTO UserLeagues (leagueId, userId) VALUES (:LEAGUE_ID, :USER_ID)", array(":USER_ID" => $userId, ":LEAGUE_ID" => $leagueId));
+        return $sql->getConnection()->lastInsertId();
+    }
+
     public function loadUserByEmail($email)
     {
         $sql = new Mysql();
