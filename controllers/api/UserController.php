@@ -14,6 +14,7 @@ class UserController extends Controller
             echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
             return;
         }
+
         $user = new Users();
         $user->loadUserById($_SESSION['userId']);
 

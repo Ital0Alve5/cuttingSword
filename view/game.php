@@ -1,7 +1,8 @@
 <?php
 $pageTitle = "Game";
 
-function customHeader(){
+function customHeader()
+{
     echo '<link rel="stylesheet" href="../../assets/css/game/index.css">';
 }
 

@@ -42,7 +42,7 @@ export const handleLogin = () => {
     const loginJson = await login.json();
 
     if (!loginJson.error) {
-      location.replace("/");
+      location.replace("/game");
     } else {
       showError(loginJson.message, [emailField, passwordField]);
     }

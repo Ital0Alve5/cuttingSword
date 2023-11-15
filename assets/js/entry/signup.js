@@ -54,7 +54,7 @@ export const handleSignup = () => {
     const signupJson = await signup.json();
 
     if (!signupJson.error) {
-      location.replace("/");
+      location.replace("/game");
     } else {
       switch (signupJson.element) {
         case "email":

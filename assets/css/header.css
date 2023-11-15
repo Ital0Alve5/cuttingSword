@@ -1,0 +1,76 @@
+nav {
+  background: #cecff5;
+}
+
+.menuBurger {
+  display: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+li {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  padding: 20px;
+  background: #cecff5;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown span {
+  padding: 20px;
+}
+
+.dropdown span:hover + .sublist {
+  display: flex;
+}
+
+.sublist:hover {
+  display: flex;
+}
+
+.sublist {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  background: #cecff5;
+  gap: 0;
+}
+
+.subItem {
+  width: 200px;
+}
+
+.subItem a {
+  width: 100%;
+  text-align: center;
+}
+
+.userName {
+  position: absolute;
+  right: 0;
+  margin: 20px;
+  top: 0;
+}

@@ -12,7 +12,7 @@ include './view/components/header.php';
 
 <div class="historyContainer">
     <div class="header">
-        <a href="/">❮</a>
+        <a href="/profile">❮</a>
         <h1>Histórico do jogo</h1>
     </div>
     <div class="tableContainer">

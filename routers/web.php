@@ -20,3 +20,5 @@ Router::get('/entry', 'controllers\web\EntryController@index');
 Router::get('/leagues', 'controllers\web\LeagueController@leaguesList');
 Router::get('/leagues/entry', 'controllers\web\LeagueController@entryLeagues');
 
+//profile
+Router::get('/profile', 'controllers\web\ProfileController@index');

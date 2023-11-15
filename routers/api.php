@@ -24,3 +24,7 @@ Router::get('/ranking/week/{leagueId}}', 'controllers\api\RankingController@getW
 
 //logout
 Router::get('/logout', 'controllers\api\LogoutController@index');
+
+
+//user
+Router::get('/user/info', 'controllers\api\UserController@getLoggedUserInfo');
