@@ -1,8 +1,3 @@
-/**
- *
- * TODO: O id do player está mockado. Precisa do login para ficar dinâmico
- *
- */
 (async function () {
   async function getUserHistory() {
     const userHistory = await fetch("http://127.0.0.1:5200/user/history");
@@ -13,7 +8,9 @@
   async function mountTable() {
     const tableBody = document.querySelector("tbody");
     const historyData = await getUserHistory();
-    console.log(historyData);
+
+    if (!historyData) return;
+
     historyData.forEach((row) => {
       const tr = document.createElement("tr");
       Object.keys(row).forEach((cell) => {

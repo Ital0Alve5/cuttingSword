@@ -12,14 +12,19 @@ const loginLeagueButton = document.querySelector(".loginLeague button");
 
 const hasErrors = () => {
   if (
-    isEmpty([
-      { element: leagueNameField, label: "Nome da liga" },
-      { element: passwordField, label: "Senha" },
-    ])
+    isEmpty(
+      [
+        { element: leagueNameField, label: "Nome da Liga" },
+        { element: passwordField, label: "Palavra-chave da liga" },
+      ],
+      ".loginLeague .errorContainer"
+    )
   )
     return true;
-  else if (isUsernameInvalid(leagueNameField)) return true;
-  else if (isPasswordInvalid(passwordField)) return true;
+  else if (isUsernameInvalid(leagueNameField, ".loginLeague .errorContainer"))
+    return true;
+  else if (isPasswordInvalid(passwordField, ".loginLeague .errorContainer"))
+    return true;
   return false;
 };
 
@@ -47,7 +52,11 @@ export const handleLogin = () => {
     if (!loginJson.error) {
       location.replace("/leagues");
     } else {
-      showError(loginJson.message, [leagueNameField, passwordField]);
+      showError(
+        loginJson.message,
+        [leagueNameField, passwordField],
+        ".loginLeague .errorContainer"
+      );
     }
   });
 };

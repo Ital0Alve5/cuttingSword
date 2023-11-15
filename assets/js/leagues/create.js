@@ -1,8 +1,8 @@
 import {
-    isEmpty,
-    isPasswordInvalid,
-    isUsernameInvalid
-  } from "../utils/sanitize.js";
+  isEmpty,
+  isPasswordInvalid,
+  isUsernameInvalid,
+} from "../utils/sanitize.js";
 import { showError, hideError } from "../utils/setError.js";
 
 const leagueNameField = document.querySelector(".createLeague .leagueName");
@@ -11,14 +11,20 @@ const createLeagueButton = document.querySelector(".createLeague button");
 
 const hasErrors = () => {
   if (
-    isEmpty([
-      { element: leagueNameField, label: "Nome da Liga" },
-      { element: passwordField, label: "Palavra-chave da liga" }
-    ])
+    isEmpty(
+      [
+        { element: leagueNameField, label: "Nome da Liga" },
+        { element: passwordField, label: "Palavra-chave da liga" },
+      ],
+      ".createLeague .errorContainer"
+    )
   )
     return true;
-  else if (isUsernameInvalid(leagueNameField)) return true;
-  else if (isPasswordInvalid(passwordField)) return true;
+  else if (isUsernameInvalid(leagueNameField, ".createLeague .errorContainer"))
+    return true;
+  else if (isPasswordInvalid(passwordField, ".createLeague .errorContainer"))
+    return true;
+
   return false;
 };
 
@@ -27,8 +33,9 @@ export const handleSignup = () => {
   leagueNameField.value = leagueNameField.value.trim();
 
   createLeagueButton.addEventListener("click", async (e) => {
-    hideError();
     e.preventDefault();
+
+    hideError();
 
     if (hasErrors()) return;
 
@@ -47,10 +54,18 @@ export const handleSignup = () => {
     } else {
       switch (signupJson.element) {
         case "leagueName":
-          showError(signupJson.message, leagueNameField);
+          showError(
+            signupJson.message,
+            leagueNameField,
+            ".createLeague .errorContainer"
+          );
           break;
         case "leaguePassword":
-          showError(signupJson.message, passwordField);
+          showError(
+            signupJson.message,
+            passwordField,
+            ".createLeague .errorContainer"
+          );
           break;
       }
     }

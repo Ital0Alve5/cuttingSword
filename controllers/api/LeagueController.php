@@ -45,19 +45,19 @@ class LeagueController extends Controller
 
         $league = new Leagues();
         if ($league->leagueExists($data['leagueName'])) {
-            echo json_encode(["error" => true, "message" => "Nome de liga já está em uso"], JSON_UNESCAPED_UNICODE);
+            echo json_encode(["error" => true, "message" => "Nome de liga já está em uso", "element" => "leagueName"], JSON_UNESCAPED_UNICODE);
         } else if (strlen($data['leagueName']) > 20) {
-            echo json_encode(["error" => true, "message" => "Nome de liga deve ter no máximo 20 caracteres"], JSON_UNESCAPED_UNICODE);
+            echo json_encode(["error" => true, "message" => "Nome de liga deve ter no máximo 20 caracteres", "element" => "leagueName"], JSON_UNESCAPED_UNICODE);
         } else if (strlen($data['leagueName']) < 6) {
-            echo json_encode(['error' => true, 'message' => 'Nome da liga deve ter mais de 6 caracteres'], JSON_UNESCAPED_UNICODE);
-        } else if (!Sanitize::sanitizeName($data['leagueName'])) {
-            echo json_encode(['error' => true, 'message' => 'Apenas letras são aceitas no nome da liga'], JSON_UNESCAPED_UNICODE);
-        } else if (strlen($data['leaguePassword']) > 20) {
-            echo json_encode(["error" => true, "message" => "Senha deve ter no máximo 20 caracteres"], JSON_UNESCAPED_UNICODE);
-        } else if (strlen($data['leaguePassword']) < 6) {
-            echo json_encode(['error' => true, 'message' => 'Senha deve ter mais de 6 caracteres'], JSON_UNESCAPED_UNICODE);
+            echo json_encode(['error' => true, "message" => "Nome da liga deve ter mais de 6 caracteres", "element" => "leagueName"], JSON_UNESCAPED_UNICODE);
+        } else if (!Sanitize::sanitizeName($data["leagueName"])) {
+            echo json_encode(["error" => true, "message" => "Apenas letras são aceitas no nome da liga", "element" => "leagueName"], JSON_UNESCAPED_UNICODE);
+        } else if (strlen($data["secretKey"]) > 20) {
+            echo json_encode(["error" => true, "message" => "Palavra-Chave deve ter no máximo 20 caracteres", "element" => "leaguePassword"], JSON_UNESCAPED_UNICODE);
+        } else if (strlen($data["secretKey"]) < 6) {
+            echo json_encode(["error" => true, "message" => "Palavra-Chave deve ter mais de 6 caracteres", "element" => "leaguePassword"], JSON_UNESCAPED_UNICODE);
         } else {
-            $leagueId = Leagues::createLeague($_SESSION['userId'], $data['leagueName'], md5($data['leaguePassword']));
+            $leagueId = Leagues::createLeague($_SESSION['userId'], $data['leagueName'], md5($data['secretKey']));
             Users::linkUserToLeague($_SESSION['userId'], $leagueId);
             Session::createSession($_SESSION['userId'], $_SESSION['email'], $leagueId);
             echo json_encode(['error' => false, 'message' => 'Liga criada com sucesso', 'leagueId' => $leagueId, 'leagueName' => $data['leagueName']], JSON_UNESCAPED_UNICODE);

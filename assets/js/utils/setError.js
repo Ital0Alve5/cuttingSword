@@ -1,6 +1,9 @@
-const error = document.querySelector(".errorContainer");
+export const showError = (message, elements, errorElementClass = "") => {
+  let error = document.querySelector(".errorContainer");
 
-export const showError = (message, elements) => {
+  if (errorElementClass.length > 0)
+    error = document.querySelector(`${errorElementClass}`);
+
   error.classList.add("active");
 
   const li = document.createElement("li");
@@ -18,9 +21,20 @@ export const showError = (message, elements) => {
   return true;
 };
 
-export const hideError = () => {
-  error.classList.remove("active");
-  error.innerHTML = "";
+export const hideError = (errorElementClass = "") => {
+  let error;
+
+  if (errorElementClass.length > 0) {
+    error = document.querySelector(`${errorElementClass}`);
+    error.classList.remove("active");
+    error.innerHTML = "";
+  } else {
+    error = document.querySelectorAll(".errorContainer");
+    Array.from(error).forEach((erro) => {
+      erro.classList.remove("active");
+      erro.innerHTML = "";
+    });
+  }
 
   Array.from(document.querySelectorAll(".errorField")).forEach((error) => {
     error.classList.remove("errorField");

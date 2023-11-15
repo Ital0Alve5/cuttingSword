@@ -24,7 +24,7 @@ include './view/components/header.php';
         <form class="createLeague">
             <ul class="errorContainer"></ul>
             <p>Criar nova liga:</p>
-            <input class="leagueName"  placeholder="Nome da sua nova liga">
+            <input class="leagueName" placeholder="Nome da sua nova liga">
             <input class="password" placeholder="Crie uma palavra-chave">
             <button>Criar nova Liga</button>
         </form>
