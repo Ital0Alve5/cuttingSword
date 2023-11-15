@@ -3,6 +3,7 @@ import {
   isEmailInvalid,
   isPasswordInvalid,
   isConfirmPasswordInvalid,
+  isUsernameInvalid
 } from "../utils/sanitize.js";
 import { showError, hideError } from "../utils/setError.js";
 
@@ -25,6 +26,7 @@ const hasErrors = () => {
   )
     return true;
   else if (isEmailInvalid(emailField)) return true;
+  else if (isUsernameInvalid(userNameField)) return true;
   else if (isPasswordInvalid(passwordField)) return true;
   else if (isConfirmPasswordInvalid(passwordField, confirmPasswordField))
     return true;
