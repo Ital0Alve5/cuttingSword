@@ -154,26 +154,3 @@
     display: none !important;
   }
 }
-
-.errorContainer {
-  display: none;
-  position: absolute;
-  top: 0;
-  transform: translateY(-110%);
-  width: 100%;
-  padding: 20px;
-  text-align: right;
-  list-style: none;
-  word-wrap: break-word;
-  background: #bb5f5f;
-  color: white;
-  font-weight: bold;
-}
-
-.errorField {
-  outline: 3px solid #bb5f5f;
-}
-
-.active {
-  display: block;
-}

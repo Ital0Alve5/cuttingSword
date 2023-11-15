@@ -13,13 +13,21 @@ include './view/components/header.php';
 <div class="leaguesContainer">
     <h1>Ligas</h1>
     <div class="entryLeague">
+
         <form class="loginLeague">
+            <ul class="errorContainer">
+                <li>sefef</li>
+                <li>sefef</li>
+            </ul>
             <p>Entrar em uma liga:</p>
             <input placeholder="Nome da Liga">
             <input placeholder="Palavra-chave da liga">
             <button>Procurar Liga</button>
         </form>
         <form class="createLeague">
+            <ul class="errorContainer">
+                <li>sefef</li>
+            </ul>
             <p>Criar nova liga:</p>
             <input placeholder="Nome da sua nova liga">
             <input placeholder="Crie uma palavra-chave">
