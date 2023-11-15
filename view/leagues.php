@@ -17,15 +17,15 @@ include './view/components/header.php';
         <form class="loginLeague">
             <ul class="errorContainer"></ul>
             <p>Entrar em uma liga:</p>
-            <input placeholder="Nome da Liga">
-            <input placeholder="Palavra-chave da liga">
+            <input class="leagueName" placeholder="Nome da Liga">
+            <input class="password" placeholder="Palavra-chave da liga">
             <button>Procurar Liga</button>
         </form>
         <form class="createLeague">
             <ul class="errorContainer"></ul>
             <p>Criar nova liga:</p>
-            <input placeholder="Nome da sua nova liga">
-            <input placeholder="Crie uma palavra-chave">
+            <input class="leagueName"  placeholder="Nome da sua nova liga">
+            <input class="password" placeholder="Crie uma palavra-chave">
             <button>Criar nova Liga</button>
         </form>
     </div>
