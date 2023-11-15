@@ -2,8 +2,9 @@
 
 //Leagues
 Router::get('/league/{leagueId}', 'controllers\api\LeagueController@getLeagueNameByLeagueId');
-Router::get('/user/leagues', 'controllers\api\LeagueController@getUserLeagues');
-Router::post('/create/leagues', 'controllers\api\LeagueController@createLeague');
+Router::get('/leagues/list', 'controllers\api\LeagueController@getUserLeagues');
+Router::post('/leagues/create', 'controllers\api\LeagueController@createLeague');
+Router::post('/leagues/login', 'controllers\api\LeagueController@loginLeague');
 
 // History
 Router::get('/user/history', 'controllers\api\HistoryController@getGlobalGameHistory');
@@ -23,6 +24,3 @@ Router::get('/ranking/week/{leagueId}}', 'controllers\api\RankingController@getW
 
 //logout
 Router::get('/logout', 'controllers\api\LogoutController@index');
-
-//Logar liga
-Router::post('/league/choose', 'controllers\api\LeagueController@ChooseLeague');

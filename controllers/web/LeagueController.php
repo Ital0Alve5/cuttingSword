@@ -11,9 +11,9 @@ class LeagueController extends Controller
         $this->protectedView('leagues');
     }
 
-    public function createLeague()
+    public function entryLeagues()
     {
-        $this->protectedView('createLeague');
+        $this->protectedView('entryLeagues');
     }
 
 }

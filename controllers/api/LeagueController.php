@@ -63,7 +63,8 @@ class LeagueController extends Controller
             echo json_encode(['error' => false, 'message' => 'Liga criada com sucesso', 'leagueId' => $leagueId, 'leagueName' => $data['leagueName']], JSON_UNESCAPED_UNICODE);
         }
     }
-    public function ChooseLeague($data){
+    
+    public function loginLeague($data){
 
         if (!Session::sessionProtection()) {
             echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
