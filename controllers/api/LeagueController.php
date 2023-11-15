@@ -63,18 +63,28 @@ class LeagueController extends Controller
             echo json_encode(['error' => false, 'message' => 'Liga criada com sucesso', 'leagueId' => $leagueId, 'leagueName' => $data['leagueName']], JSON_UNESCAPED_UNICODE);
         }
     }
-    
-    public function loginLeague($data){
+
+    public function loginLeague($data)
+    {
 
         if (!Session::sessionProtection()) {
             echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
             return;
         }
 
+
         $league = new Leagues();
         $league->loadLeagueByName($data['leagueName']);
+
+        if (Users::isUserPartOfLeague($_SESSION['userId'],  $league->getId())) {
+            echo json_encode(["error" => true, "message" => "Usuário já faz parte desta liga."], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+
         $user = new Users();
         $user->loadUserById($_SESSION['userId']);
+
         if (Leagues::leagueExists($data['leagueName']) && $league->getSecretKey() === md5($data['secretKey'])) {
             Users::linkUserToLeague($_SESSION['userId'], $league->getId());
             Session::createSession($_SESSION['userId'], $_SESSION['email'], $league->getId());
