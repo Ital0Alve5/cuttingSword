@@ -24,7 +24,7 @@
                     <span>Ranking ▼</span>
                     <ul class="sublist">
                         <li class="subItem"><a href="/ranking">Ranking Global</a></li>
-                        <li class="subItem"><a href="#">Ranking da Liga</a></li>
+                        <li class="subItem"><a href="/ranking/league">Ranking da Liga</a></li>
                     </ul>
                 </li>
                 <li><a href="/leagues">Ligas</a></li>

@@ -6,8 +6,12 @@ use controllers\Controller;
 
 class RankingController extends Controller
 {
-    public function index()
+    public function casualRanking()
     {
         $this->protectedView('ranking');
+    }
+    public function leagueRanking()
+    {
+        $this->protectedView('leagueRanking');
     }
 }

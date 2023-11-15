@@ -11,7 +11,8 @@ Router::get('/game', 'controllers\web\GameController@index');
 Router::get('/history', 'controllers\web\HistoryController@index');
 
 //ranking
-Router::get('/ranking', 'controllers\web\RankingController@index');
+Router::get('/ranking/league', 'controllers\web\RankingController@leagueRanking');
+Router::get('/ranking', 'controllers\web\RankingController@casualRanking');
 
 //entry
 Router::get('/entry', 'controllers\web\EntryController@index');

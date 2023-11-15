@@ -18,8 +18,10 @@ Router::post('/signup', 'controllers\api\SignupController@index');
 
 
 //Ranking
-Router::get('/ranking/total/{leagueId}}', 'controllers\api\RankingController@getTotalRanking');
-Router::get('/ranking/week/{leagueId}}', 'controllers\api\RankingController@getWeekRanking');
+Router::get('/ranking/casual/total', 'controllers\api\RankingController@getCasualTotalRanking');
+Router::get('/ranking/casual/week', 'controllers\api\RankingController@getCasualWeekRanking');
+Router::get('/ranking/league/total', 'controllers\api\RankingController@getLeagueTotalRanking');
+Router::get('/ranking/league/week', 'controllers\api\RankingController@getLeagueWeekRanking');
 
 
 //logout
