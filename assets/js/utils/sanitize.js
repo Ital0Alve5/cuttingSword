@@ -37,3 +37,15 @@ export const isConfirmPasswordInvalid = (password, confirmPassword) => {
     return showError("As senhas diferem.", confirmPassword);
   return false;
 };
+
+export const isUsernameInvalid = (username) => {
+  if (username.value.length < 6)
+    return showError("Nome deve conter mais de 6 caracteres.", username);
+  else if (username.value.length > 20)
+    return showError("Nome deve conter menos de 20 caracteres.", username);
+  else if (username.value.match(" ")){
+    return showError("Nome inválido.", username);
+  }
+
+  return false;
+};
