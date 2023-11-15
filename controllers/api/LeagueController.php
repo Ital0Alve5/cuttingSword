@@ -107,4 +107,15 @@ class LeagueController extends Controller
     public function exitLeague(){
         $_SESSION['leagueId'] = 0;
     }
+
+    public function infoLeague(){
+
+        if (!Session::sessionProtection()) {
+            echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        echo json_encode(["leagueId" => $_SESSION['leagueId']], JSON_UNESCAPED_UNICODE);
+        
+    }
 }
