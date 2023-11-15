@@ -26,8 +26,9 @@ export const handleSignup = () => {
   passwordField.value = passwordField.value.trim();
   leagueNameField.value = leagueNameField.value.trim();
 
-  createLeagueButton.addEventListener("click", async () => {
+  createLeagueButton.addEventListener("click", async (e) => {
     hideError();
+    e.preventDefault();
 
     if (hasErrors()) return;
 

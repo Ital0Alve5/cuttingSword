@@ -7,6 +7,7 @@ const getUserLeagues = async () => {
 export const mountList = async () => {
   const listElement = document.querySelector(".leaguesList");
   const leagueList = await getUserLeagues();
+  if (!leagueList) return;
   leagueList.forEach((item) => {
     const liElement = document.createElement("li");
     const aElement = document.createElement("a");
