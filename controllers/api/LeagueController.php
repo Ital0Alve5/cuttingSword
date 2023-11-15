@@ -93,4 +93,18 @@ class LeagueController extends Controller
             echo json_encode(["error" => true, "message" => "Nome ou senha da liga incorretos"], JSON_UNESCAPED_UNICODE);
         }
     }
+    public function joinLeague($data){
+        $league = new Leagues();
+        $league->loadLeagueByName($data['leagueName']);
+        if (Users::isUserPartOfLeague($_SESSION['userId'], $league->getId())){
+            $_SESSION['leagueId'] = $league->getId();
+            echo json_encode(["error" => false, "message" => "Entrou na liga com sucesso"], JSON_UNESCAPED_UNICODE);
+        } else {
+            echo json_encode(["error" => true, "message" => "Usuário não faz parte da liga"], JSON_UNESCAPED_UNICODE);
+        }
+    }
+
+    public function exitLeague(){
+        $_SESSION['leagueId'] = 0;
+    }
 }
