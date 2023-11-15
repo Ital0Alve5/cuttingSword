@@ -23,7 +23,7 @@
                 <li class="dropdown">
                     <span>Ranking ▼</span>
                     <ul class="sublist">
-                        <li class="subItem"><a href="#">Ranking Global</a></li>
+                        <li class="subItem"><a href="/ranking">Ranking Global</a></li>
                         <li class="subItem"><a href="#">Ranking da Liga</a></li>
                     </ul>
                 </li>

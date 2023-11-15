@@ -11,10 +11,7 @@ include './view/components/header.php';
 ?>
 
 <div class="historyContainer">
-    <div class="header">
-        <a href="/profile">❮</a>
-        <h1>Histórico do jogo</h1>
-    </div>
+    <h1>Histórico do jogo</h1>
     <div class="tableContainer">
         <table>
             <thead>

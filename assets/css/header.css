@@ -1,8 +1,8 @@
-nav {
+header nav {
   background: #cecff5;
 }
 
-.menuBurger {
+header .menuBurger {
   display: none;
 }
 
@@ -13,7 +13,7 @@ header {
   z-index: 99;
 }
 
-ul {
+header ul {
   list-style: none;
   display: flex;
   gap: 10px;
@@ -22,33 +22,33 @@ ul {
   flex-direction: row;
 }
 
-li {
+header li {
   display: flex;
 }
 
-a {
+header a {
   text-decoration: none;
   padding: 20px;
   background: #cecff5;
 }
 
-.dropdown {
+header .dropdown {
   position: relative;
 }
 
-.dropdown span {
+header .dropdown span {
   padding: 20px;
 }
 
-.dropdown span:hover + .sublist {
+header .dropdown span:hover + .sublist {
   display: flex;
 }
 
-.sublist:hover {
+header .sublist:hover {
   display: flex;
 }
 
-.sublist {
+header .sublist {
   display: none;
   flex-direction: column;
   position: absolute;
@@ -59,16 +59,16 @@ a {
   gap: 0;
 }
 
-.subItem {
+header .subItem {
   width: 200px;
 }
 
-.subItem a {
+header .subItem a {
   width: 100%;
   text-align: center;
 }
 
-.userName {
+header .userName {
   position: absolute;
   right: 0;
   margin: 20px;

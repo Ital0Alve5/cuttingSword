@@ -1,15 +1,13 @@
 (async function () {
   async function getUserLeagues() {
-    const leagues = await fetch("http://127.0.0.1:5200/user/leagues");
+    const leagues = await fetch("http://127.0.0.1:5200/leagues/list");
     const leaguesJson = await leagues.json();
-    console.log(leaguesJson);
     return leaguesJson;
   }
 
   async function mountList() {
     const listElement = document.querySelector(".leaguesList");
     const leagueList = await getUserLeagues();
-    console.log(leagueList);
     leagueList.forEach((item) => {
       const liElement = document.createElement("li");
       const aElement = document.createElement("a");

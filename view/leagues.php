@@ -11,6 +11,21 @@ include './view/components/header.php';
 ?>
 
 <div class="leaguesContainer">
+    <h1>Ligas</h1>
+    <div class="entryLeague">
+        <form class="loginLeague">
+            <p>Entrar em uma liga:</p>
+            <input placeholder="Nome da Liga">
+            <input placeholder="Palavra-chave da liga">
+            <button>Procurar Liga</button>
+        </form>
+        <form class="createLeague">
+            <p>Criar nova liga:</p>
+            <input placeholder="Nome da sua nova liga">
+            <input placeholder="Crie uma palavra-chave">
+            <button>Criar nova Liga</button>
+        </form>
+    </div>
     <ul class="leaguesList"></ul>
 </div>
 
@@ -19,7 +34,7 @@ include './view/components/header.php';
 
 function customFooter()
 {
-    echo '<script src="../assets/js/leagues.js"></script>';
+    echo '<script type="module" src="../assets/js/leagues/index.js"></script>';
 }
 
 include './view/components/footer.php'

@@ -1,8 +1,51 @@
 .leaguesContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  gap: 60px;
+  margin-top: 100px;
+}
+
+.entryLeague {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.loginLeague,
+.createLeague {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #cdd0f4;
+  text-align: center;
+  font-weight: 900;
+}
+
+.entryLeague input {
+  position: relative;
+  width: 100%;
+  font-size: 1em;
+  padding: 10px;
+  border: none;
+  background: #ebebeb;
+  font-weight: bold;
+  transition: 0.4s;
+  outline: none;
+}
+
+.entryLeague button {
+  padding: 10px;
+  border: none;
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .leaguesList {
