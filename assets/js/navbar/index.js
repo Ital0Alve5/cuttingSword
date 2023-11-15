@@ -8,7 +8,7 @@
     if (!loginJson.error) {
       userNameElement.innerText = `Olá, ${loginJson.userName}!`;
     } else {
-      location.replace("/entry");
+      userNameElement.innerHTML = `<a href="/entry">Faça Login/Cadastro</a>`;
     }
   };
 
