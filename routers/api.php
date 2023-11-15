@@ -5,6 +5,7 @@ Router::get('/league/{leagueId}', 'controllers\api\LeagueController@getLeagueNam
 Router::get('/leagues/list', 'controllers\api\LeagueController@getUserLeagues');
 Router::post('/leagues/create', 'controllers\api\LeagueController@createLeague');
 Router::post('/leagues/login', 'controllers\api\LeagueController@loginLeague');
+Router::get('leagues/info', 'controllers\api\LeagueController@infoLeague');
 
 // History
 Router::get('/user/history', 'controllers\api\HistoryController@getGlobalGameHistory');

@@ -93,4 +93,15 @@ class LeagueController extends Controller
             echo json_encode(["error" => true, "message" => "Nome ou senha da liga incorretos"], JSON_UNESCAPED_UNICODE);
         }
     }
+
+    public function infoLeague(){
+
+        if (!Session::sessionProtection()) {
+            echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
+        echo json_encode(["leagueId" => $_SESSION['leagueId']], JSON_UNESCAPED_UNICODE);
+        
+    }
 }
