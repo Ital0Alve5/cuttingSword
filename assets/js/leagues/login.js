@@ -6,45 +6,48 @@ import {
 
 import { showError, hideError } from "../utils/setError.js";
 
-const leagueNameField = document.querySelector(".loginLeague .emailField");
-const passwordField = document.querySelector("#loginForm .passwordField");
-const loginLeagueButton = document.querySelector("#loginForm button");
+const leagueNameField = document.querySelector(".loginLeague .leagueName");
+const passwordField = document.querySelector(".loginLeague .password");
+const loginLeagueButton = document.querySelector(".loginLeague button");
 
 const hasErrors = () => {
   if (
     isEmpty([
-      { element: emailField, label: "Email" },
+      { element: leagueNameField, label: "Nome da liga" },
       { element: passwordField, label: "Senha" },
     ])
   )
     return true;
-  else if (isEmailInvalid(emailField)) return true;
+  else if (isUsernameInvalid(leagueNameField)) return true;
   else if (isPasswordInvalid(passwordField)) return true;
   return false;
 };
 
 export const handleLogin = () => {
-  emailField.value = emailField.value.trim();
+  leagueNameField.value = leagueNameField.value.trim();
   passwordField.value = passwordField.value.trim();
 
-  loginButton.addEventListener("click", async () => {
+  loginLeagueButton.addEventListener("click", async (e) => {
+    e.preventDefault();
+
     hideError();
 
     if (hasErrors()) return;
 
-    const login = await fetch("http://127.0.0.1:5200/login", {
+    const login = await fetch("http://127.0.0.1:5200/leagues/login", {
       method: "POST",
       body: JSON.stringify({
-        email: emailField.value,
-        password: passwordField.value,
+        leagueName: leagueNameField.value,
+        secretKey: passwordField.value,
       }),
     });
+
     const loginJson = await login.json();
 
     if (!loginJson.error) {
-      location.replace("/game");
+      location.replace("/leagues");
     } else {
-      showError(loginJson.message, [emailField, passwordField]);
+      showError(loginJson.message, [leagueNameField, passwordField]);
     }
   });
 };

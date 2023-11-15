@@ -43,7 +43,7 @@ export const isUsernameInvalid = (username) => {
     return showError("Nome deve conter mais de 6 caracteres.", username);
   else if (username.value.length > 20)
     return showError("Nome deve conter menos de 20 caracteres.", username);
-  else if (username.value.match(" ")){
+  else if (username.value.match(" ")) {
     return showError("Nome inválido.", username);
   }
 
