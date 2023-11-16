@@ -13,6 +13,7 @@ class LeagueGameHistory
     private $userId;
     private $timeLeft;
     private $victory;
+    private $matchLevel;
     private $matchPoints;
     private $date;
 
@@ -76,6 +77,16 @@ class LeagueGameHistory
         return $this->matchPoints;
     }
 
+    public function setMatchLevel($matchLevel)
+    {
+        $this->matchLevel = $matchLevel;
+    }
+
+    public function getMatchLevel()
+    {
+        return $this->matchLevel;
+    }
+
     public function setDate($date)
     {
         $this->date = $date;
@@ -112,22 +123,23 @@ class LeagueGameHistory
         return $leaguesList;
     }
 
-    public static function createLeagueUserHistory($leagueId, $userId, $timeLeft, $victory, $matchPoints)
+    public static function createLeagueUserHistory($leagueId, $userId, $timeLeft, $victory, $matchPoints, $matchLevel)
     {
         $sql = new Mysql();
         $date = (new Datetime('now'))->format('Y-m-d H:i:s');
 
         $sql->executeQuery("INSERT INTO LeagueGameHistory(
-            leagueId, userId, timeLeft, victory, matchPoints, date
+            leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date
             ) 
             VALUES (
-                :LEAGUE_ID, :USER_ID, :TIME_LEFT, :VICTORY, :MATCH_POINTS, :DATE
+                :LEAGUE_ID, :USER_ID, :TIME_LEFT, :VICTORY, :MATCH_POINTS, :MATCH_LEVEL, :DATE
                 )", array(
             ":LEAGUE_ID" => $leagueId,
             ":USER_ID" => $userId,
             ":TIME_LEFT" => $timeLeft,
             ":VICTORY" => $victory,
             ":MATCH_POINTS" => $matchPoints,
+            ":MATCH_LEVEL" => $matchLevel,
             ":DATE" => $date
         ));
 
@@ -145,6 +157,7 @@ class LeagueGameHistory
             $this->setUserId($row['userId']);
             $this->setTimeLeft($row['timeLeft']);
             $this->setVictory($row['victory']);
+            $this->setMatchLevel($row['matchLevel']);
             $this->setMatchPoints($row['matchPoints']);
             $this->setDate($row['date']);
         }
@@ -158,6 +171,7 @@ class LeagueGameHistory
             "userId" => $this->getUserId(),
             "timeLeft" => $this->getTimeLeft(),
             "victory" => $this->getVictory(),
+            "matchLevel" => $this->getMatchLevel(),
             "matchPoints" => $this->getMatchPoints(),
             "date" => $this->getDate(),
         ));

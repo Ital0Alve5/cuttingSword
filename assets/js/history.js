@@ -9,6 +9,7 @@
     const tableBody = document.querySelector("tbody");
     const historyData = await getUserHistory();
 
+    console.log(historyData);
     if (!historyData) return;
 
     historyData.forEach((row) => {

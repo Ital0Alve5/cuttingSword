@@ -26,7 +26,7 @@ class GlobalGameHistory
             SELECT u.name as 'userName', 
             l.name as 'leagueName', 
             lh.victory as 'victory', 
-            NULL as 'level', 
+            lh.matchLevel as 'level', 
             lh.matchPoints as 'points', 
             lh.timeleft 'timeLeft', 
             lh.date  as 'date' from 

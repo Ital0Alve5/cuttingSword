@@ -89,6 +89,7 @@ class Mysql extends PDO
             userId INTEGER NOT NULL,
             victory BOOLEAN,
             timeLeft INTEGER,
+            matchLevel VARCHAR(10),
             matchPoints INTEGER,
             date TIMESTAMP,
             CONSTRAINT fk_leagueIdHistory FOREIGN KEY (leagueId) REFERENCES Leagues(id),
