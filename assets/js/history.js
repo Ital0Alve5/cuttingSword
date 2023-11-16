@@ -9,14 +9,13 @@
     const tableBody = document.querySelector("tbody");
     const historyData = await getUserHistory();
 
-    console.log(historyData);
     if (!historyData) return;
 
     historyData.forEach((row) => {
       const tr = document.createElement("tr");
       Object.keys(row).forEach((cell) => {
         const td = document.createElement("td");
-        if (cell === "leagueName" && row[cell] === null) row[cell] = "casual";
+        if (cell === "leagueName" && row[cell] === null) row[cell] = "Casual";
         else if (cell === "victory")
           row[cell] = row[cell] === 1 ? "Vitória" : "Derrota";
         else if (cell === "level" && row[cell] === null) row[cell] = "-";

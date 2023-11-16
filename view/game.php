@@ -16,30 +16,34 @@ include './view/components/header.php';
     </p>
     <div class="container">
         <ul class="playersQuantity">
-            <li class="choice" data-options="1">1 player</li>
+            <li class="choice" data-options="1">1 player (ranqueada)</li>
             <li class="twoPlayers" data-options="2">2 players</li>
         </ul>
         <ul class="difficultyLevel">
-            <li data-options="3">easy</li>
-            <li data-options="2" class="choice">normal</li>
-            <li data-options="1.5">hard</li>
-            <li data-options="1">very hard</li>
-            <li data-options="0.1">impossible</li>
+            <li data-options="3">Fácil</li>
+            <li data-options="2" class="choice">Normal</li>
+            <li data-options="1.5">Difícil</li>
+            <li data-options="1">Muito Difícil</li>
+            <li data-options="0.1">Impossível</li>
         </ul>
         <div class="start" data-options="start">
-            <p class="tutorialOnePlayer">You are the left player.</p>
+            <p class="tutorialOnePlayer">Você é o jogador da esquerda.</p>
             <p>
-                The left player uses <strong>W, A, S, D</strong> to move and
-                <strong>SPACE</strong> to hit.
+                O jogador da esquerda se move usando <strong>W, A, S, D</strong> e
+                ataca usando o <strong>ESPAÇO</strong>.
             </p>
             <p class="tutorialTwoPlayers">
-                The right player uses <strong>← ↑ → ↓</strong> to move and
-                <strong>Enter</strong> to hit
+                O jogador da direita se move com <strong>← ↑ → ↓</strong> e
+                ataca usando o <strong>ENTER</strong>.
             </p>
-            <p>Now, press <strong>ENTER</strong> to start the game.</p>
+            <p>Pressione <strong>ENTER</strong> para começar o jogo.</p>
         </div>
         <div class="startTimer">3</div>
-        <div class="gameOver"></div>
+        <div class="gameOver">
+            <span class="playerWinner"></span>
+            <span class="points"></span>
+            <p class="playAgain">Aperte ENTER para jogar novamente!</p>
+        </div>
         <div class="topBar">
             <div class="playerHealthContainer playerOne">
                 <div class="playerHealth"></div>

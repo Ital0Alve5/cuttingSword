@@ -28,10 +28,13 @@ export class Game {
     this.KeysListener = KeysListener;
 
     this.showingWinnerMessage = false;
+
     this.bot = new Bot({
       player: this.sprites.players.playerOne,
       botPlayer: this.sprites.players.playerTwo,
     });
+
+    this.options = null;
   }
 
   setupScreen() {
@@ -70,6 +73,7 @@ export class Game {
     else if (
       playerOne.health.widthInPercent > playerTwo.health.widthInPercent
     ) {
+      if (this.options) this.options.victory = true;
       playerOne.isWinner = true;
       return playerOne;
     }
@@ -212,6 +216,12 @@ export class Game {
     this.handleTimer(true);
   }
 
+  setPlayAgain() {
+    window.addEventListener("keydown", (e) => {
+      if (e.code === "Enter") location.replace("/game");
+    });
+  }
+
   finishGame(player) {
     if (!player.isAlive() && !this.gameOver.value) {
       this.gameOver.value = true;
@@ -224,12 +234,19 @@ export class Game {
       player.setBaseSprite();
 
       if (!this.showingWinnerMessage) {
-        if (this.checkWinner())
-          this.setWinnerMessage(`${this.checkWinner().name} winner`);
-        else this.setWinnerMessage("Time Out");
+        if (this.checkWinner()) {
+          this.setWinnerMessage(`${userNameText} winner`);
+          if (this.options.playersQuantity === "1") {
+            (async () => {
+              if (!(await this.sendMetrics()).error) this.setPointsMessage();
+            })();
+          }
+        } else this.setWinnerMessage("Time Out");
         this.stopTopBarTimer();
+        this.setPlayAgain();
       }
     }
+
     if (player.currentSprite.isLastFrame) {
       cancelAnimationFrame(this.animationId);
     }
@@ -237,8 +254,27 @@ export class Game {
 
   setWinnerMessage(winnerMessage) {
     this.showingWinnerMessage = true;
-    this.gameOver.element.innerText = `${winnerMessage}!`;
+    this.gameOver.element.querySelector(
+      ".playerWinner"
+    ).innerText = `${winnerMessage}!`;
+
     this.gameOver.element.classList.add("activeFlex");
+  }
+
+  setPointsMessage() {
+    if (!this.options) return;
+    const points = this.gameOver.element.querySelector(".points");
+    points.innerText = `${this.calculatePoints()} pontos`;
+    points.classList.add("activeFlex");
+  }
+
+  calculatePoints() {
+    const points = Math.trunc(
+      (this.topBarTimer.currentValue * (4 - this.options.difficultyLevel)) / 2
+    );
+
+    if (this.checkWinner().name === "Player1") return points;
+    else return -points;
   }
 
   setStartTimer() {
@@ -263,6 +299,7 @@ export class Game {
   }
 
   async startGame(options) {
+    this.options = options;
     this.startTimer.element.classList.add("activeFlex");
     await this.setStartTimer();
 
@@ -279,5 +316,29 @@ export class Game {
     }
 
     this.handleTimer();
+  }
+
+  async sendMetrics() {
+    const levelTranslation = {
+      3: "Fácil",
+      2: "Normal",
+      1.5: "Difícil",
+      1: "Muito Difícil",
+      0.1: "Impossível",
+    };
+
+    const metrics = {
+      matchLevel: levelTranslation[this.options.difficultyLevel],
+      matchPoints: this.calculatePoints(),
+      victory: this.checkWinner().name === "Player1" ? 1 : 0,
+      timeLeft: this.topBarTimer.currentValue,
+    };
+
+    const response = await fetch("http://127.0.0.1:5200/game/metrics", {
+      method: "POST",
+      body: JSON.stringify(metrics),
+    });
+
+    return await response.json();
   }
 }

@@ -31,17 +31,17 @@ class Seed
     {
         $sql = new Mysql();
         return $sql->executeQuery("
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 23, 1, 40, 'normal', '2023-11-08 11:21:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 13, 0, -10, 'hard', '2023-11-08 11:33:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 58, 0, -100, 'impossible', '2023-11-08 11:34:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (3, 50, 1, 70, 'easy', '2023-11-08 11:35:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (3, 45, 0, -20, 'very hard', '2023-11-08 11:36:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 20, 1, 70, 'hard', '2023-11-08 11:42:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 40, 1, 80, 'hard', '2023-11-08 11:43:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 50, 1, 70, 'very hard', '2023-11-08 11:44:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 58, 0, -50, 'impossible', '2023-11-08 11:45:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 49, 1, 40, 'easy', '2023-11-08 11:46:26');
-            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (3, 30, 0, -12, 'hard', '2023-11-08 11:47:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 23, 1, 40, 'Normal', '2023-11-08 11:21:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 13, 0, -10, 'Difícil', '2023-11-08 11:33:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 58, 0, -100, 'Impossível', '2023-11-08 11:34:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (3, 50, 1, 70, 'Fácil', '2023-11-08 11:35:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (3, 45, 0, -20, 'Muito Difícil', '2023-11-08 11:36:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 20, 1, 70, 'Difícil', '2023-11-08 11:42:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 40, 1, 80, 'Difícil', '2023-11-08 11:43:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 50, 1, 70, 'Muito Difícil', '2023-11-08 11:44:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 58, 0, -50, 'Impossível', '2023-11-08 11:45:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 49, 1, 40, 'Fácil', '2023-11-08 11:46:26');
+            INSERT INTO CasualGameHistory(userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (3, 30, 0, -12, 'Difícil', '2023-11-08 11:47:26');
         ");
     }
 
@@ -73,12 +73,12 @@ class Seed
     {
         $sql = new Mysql();
         return $sql->executeQuery("
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 1, 40, 'hard', '2023-11-08 11:21:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 2, 23, 1, 40, 'impossible', '2023-11-08 11:22:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 3, 23, 0, -40, 'easy', '2023-11-08 11:23:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 3, 24, 1, 40, 'normal', '2023-11-08 11:24:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 0, -10, 'normal', '2023-11-08 11:25:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 1, 23, 1, 40, 'normal', '2023-11-08 11:26:26');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 1, 40, 'Difícil', '2023-11-08 11:21:26');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 2, 23, 1, 40, 'Impossível', '2023-11-08 11:22:26');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 3, 23, 0, -40, 'Fácil', '2023-11-08 11:23:26');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 3, 24, 1, 40, 'Normal', '2023-11-08 11:24:26');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 0, -10, 'Normal', '2023-11-08 11:25:26');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 1, 23, 1, 40, 'Normal', '2023-11-08 11:26:26');
         ");
     }
 }

@@ -9,7 +9,6 @@ class Main {
   static async main() {
     const canvas = document.querySelector("canvas");
     const context = canvas.getContext("2d");
-
     const screen = new Screen();
 
     const background = new Sprite({
@@ -226,7 +225,9 @@ class Main {
     const options = {
       playersQuantity: 0,
       difficultyLevel: 0,
+      victory: false,
       start: false,
+      points: false,
     };
 
     getPlayersQuantity.showOptions();
@@ -248,7 +249,8 @@ class Main {
         document
           .querySelector(".tutorialOnePlayer")
           .classList.add("activeBlock");
-
+        console.log(options);
+        options.points = true;
         return;
       }
 

@@ -39,7 +39,7 @@ class Ranking
             Users as u
             ON u.id = cg.userId
         WHERE 
-            cg.date >= curdate() - INTERVAL 7 day AND cg.date < curdate()
+            cg.date >= curdate() - INTERVAL 7 day
         GROUP BY
             u.name
         ORDER BY
