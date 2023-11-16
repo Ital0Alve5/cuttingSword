@@ -30,6 +30,8 @@ Router::get('/ranking/league/week', 'controllers\api\RankingController@getLeague
 //logout
 Router::get('/logout', 'controllers\api\LogoutController@index');
 
-
 //user
 Router::get('/user/info', 'controllers\api\UserController@getLoggedUserInfo');
+
+//game
+Router::post('/game/metrics', 'controllers\api\GameController@index');
