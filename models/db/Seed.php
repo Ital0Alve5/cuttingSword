@@ -16,13 +16,13 @@ class Seed
     {
         $sql = new Mysql();
         return $sql->executeQuery("
-            INSERT INTO Users(name, email, password) VALUES ('italo', 'italo_alves_@outlook.com', '220f4c072ce8221c1671f3534c8c4d53'); 
-            INSERT INTO Users(name, email, password) VALUES ('yasmim', 'yasmim_zedelinski@gmail.com', 'e6024d562b44cbc3bea95825cace281d');
-            INSERT INTO Users(name, email, password) VALUES ('heitor', 'heitor@gmail.com', '42599b6539f10802bcffd4290a39442c');
-            INSERT INTO Users(name, email, password) VALUES ('alexTop', 'alexTop@gmail.com', '7610daf90b31bd9e9d9e2ef95e2ba204');
-            INSERT INTO Users(name, email, password) VALUES ('cris', 'cris@outlook.com', '2a5f02807d62292692e5c965390fb4fc');
-            INSERT INTO Users(name, email, password) VALUES ('luciano', 'lugg.alves@gmail.com', '53c7a448abe8577a8651af7b3c01f737');
-            INSERT INTO Users(name, email, password) VALUES ('mister', 'mister@gmail.com', '23f1a95f11860b9c09510f680ac0a258');
+            INSERT INTO Users(name, email, password) VALUES ('italo', 'italo_alves_@outlook.com', 'e10adc3949ba59abbe56e057f20f883e'); 
+            INSERT INTO Users(name, email, password) VALUES ('yasmim', 'yasmim_zedelinski@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
+            INSERT INTO Users(name, email, password) VALUES ('heitor', 'heitor@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
+            INSERT INTO Users(name, email, password) VALUES ('alexTop', 'alexTop@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
+            INSERT INTO Users(name, email, password) VALUES ('cris', 'cris@outlook.com', 'e10adc3949ba59abbe56e057f20f883e');
+            INSERT INTO Users(name, email, password) VALUES ('luciano', 'lugg.alves@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
+            INSERT INTO Users(name, email, password) VALUES ('mister', 'mister@gmail.com', 'e10adc3949ba59abbe56e057f20f883e');
         ");
     }
 
@@ -48,8 +48,8 @@ class Seed
     {
         $sql = new Mysql();
         return $sql->executeQuery("
-            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (1, 'liga1', '04b6e1a104ba0ed5e7985abde3e13140');
-            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (2, 'liga2', '57285571deec8d096491da6f2bf7f2a6');
+            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (1, 'ligateste1', 'e10adc3949ba59abbe56e057f20f883e');
+            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (2, 'ligateste2', 'e10adc3949ba59abbe56e057f20f883e');
         ");
     }
 

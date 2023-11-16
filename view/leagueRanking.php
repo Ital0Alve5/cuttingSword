@@ -12,10 +12,9 @@ include './view/components/header.php';
 
 <div class="rankingContainer">
     <div class="header">
-        <a href="/">❮</a>
-        <h1>Ranking Casual</h1>
+        <h1>Ranking da Liga</h1>
     </div>
-    <div class="tablesContainer">
+    <div class="tablesContainer leagueTables">
         <div class="totalRankingContainer">
             <h2>Total</h2>
             <table>
@@ -37,8 +36,8 @@ include './view/components/header.php';
             </table>
 
         </div>
-
     </div>
+    <div class="warning">Você não está jogando por nenhuma liga.</div>
 </div>
 
 <?php

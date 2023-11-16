@@ -12,7 +12,6 @@ include './view/components/header.php';
 
 <div class="rankingContainer">
     <div class="header">
-        <a href="/">❮</a>
         <h1>Ranking Casual</h1>
     </div>
     <div class="tablesContainer">

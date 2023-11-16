@@ -10,14 +10,18 @@ export const mountList = async () => {
   if (!leagueList) return;
   leagueList.forEach((item) => {
     const liElement = document.createElement("li");
-    const aElement = document.createElement("a");
     const spanElement = document.createElement("span");
+    const joinLeagueButton = document.createElement("button");
+
+    joinLeagueButton.innerText = "Jogar";
+
     liElement.classList.add("leagueItem");
     spanElement.classList.add("leagueName");
     spanElement.innerText = item.name;
-    aElement.appendChild(spanElement);
-    liElement.appendChild(aElement);
+
+    liElement.appendChild(spanElement);
+    liElement.appendChild(joinLeagueButton);
+
     listElement.appendChild(liElement);
   });
 };
-

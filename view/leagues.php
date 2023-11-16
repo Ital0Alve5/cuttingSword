@@ -12,8 +12,11 @@ include './view/components/header.php';
 
 <div class="leaguesContainer">
     <h1>Ligas</h1>
+    <div class="leagueInfo">
+        <p class="warning">Você está jogando pela liga <strong class="leagueName">teste</strong></p>
+        <button class="playCasual">Voltar a jogar casual</button>
+    </div>
     <div class="entryLeague">
-
         <form class="loginLeague">
             <ul class="errorContainer"></ul>
             <p>Entrar em uma liga:</p>

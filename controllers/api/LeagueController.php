@@ -93,10 +93,19 @@ class LeagueController extends Controller
             echo json_encode(["error" => true, "message" => "Nome ou senha da liga incorretos"], JSON_UNESCAPED_UNICODE);
         }
     }
-    public function joinLeague($data){
+
+    public function joinLeague($data)
+    {
+
+        if (!Session::sessionProtection()) {
+            echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
         $league = new Leagues();
         $league->loadLeagueByName($data['leagueName']);
-        if (Users::isUserPartOfLeague($_SESSION['userId'], $league->getId())){
+
+        if (Users::isUserPartOfLeague($_SESSION['userId'], $league->getId())) {
             $_SESSION['leagueId'] = $league->getId();
             echo json_encode(["error" => false, "message" => "Entrou na liga com sucesso"], JSON_UNESCAPED_UNICODE);
         } else {
@@ -104,18 +113,27 @@ class LeagueController extends Controller
         }
     }
 
-    public function exitLeague(){
+    public function exitLeague()
+    {
+        if (!Session::sessionProtection()) {
+            echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
+            return;
+        }
+
         $_SESSION['leagueId'] = 0;
     }
 
-    public function infoLeague(){
+    public function infoLeague()
+    {
 
         if (!Session::sessionProtection()) {
             echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
             return;
         }
 
-        echo json_encode(["leagueId" => $_SESSION['leagueId']], JSON_UNESCAPED_UNICODE);
-        
+        $league = new Leagues();
+        $league->loadLeagueById($_SESSION['leagueId']);
+
+        echo json_encode(["leagueId" => $league->getId(), "leagueName" => $league->getName()], JSON_UNESCAPED_UNICODE);
     }
 }

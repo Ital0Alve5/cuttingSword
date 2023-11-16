@@ -8,7 +8,7 @@ use models\Ranking;
 
 class RankingController extends Controller
 {
-    public function getTotalRankingCasual()
+    public function getCasualTotalRanking()
     {
         if (!Session::sessionProtection()) {
             echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
@@ -19,7 +19,7 @@ class RankingController extends Controller
         echo json_encode(Ranking::getCasualTotalRanking(), JSON_UNESCAPED_UNICODE);
     }
 
-    public function getWeekRankingCasual()
+    public function getCasualWeekRanking()
     {
         if (!Session::sessionProtection()) {
             echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
@@ -30,7 +30,7 @@ class RankingController extends Controller
         echo json_encode(Ranking::getCasualWeekRanking(), JSON_UNESCAPED_UNICODE);
     }
 
-    public function getTotalRankingLeague()
+    public function getLeagueTotalRanking()
     {
         if (!Session::sessionProtection()) {
             echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
@@ -45,7 +45,7 @@ class RankingController extends Controller
         echo json_encode(Ranking::getLeagueTotalRanking($_SESSION["leagueId"]), JSON_UNESCAPED_UNICODE);
     }
 
-    public function getWeekRankingLeague()
+    public function getLeagueWeekRanking()
     {
         if (!Session::sessionProtection()) {
             echo json_encode(["error" => true, "message" => "Permissões insuficientes"], JSON_UNESCAPED_UNICODE);
