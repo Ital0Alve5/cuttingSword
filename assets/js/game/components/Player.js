@@ -130,10 +130,16 @@ export class Player {
   }
 
   moveToAttack() {
-    if (this.lastMovmentThroughAxiosX === "left") {
-      this.updateCurrentSprite(this.sprites.attackLeft);
+    if (this.lastMovmentThroughAxiosX.length === 0) {
+      if (this.initialOrientation === "left")
+        this.updateCurrentSprite(this.sprites.attackLeft);
+      else this.updateCurrentSprite(this.sprites.attackRight);
     } else {
-      this.updateCurrentSprite(this.sprites.attackRight);
+      if (this.lastMovmentThroughAxiosX === "left") {
+        this.updateCurrentSprite(this.sprites.attackLeft);
+      } else {
+        this.updateCurrentSprite(this.sprites.attackRight);
+      }
     }
 
     if (this.enemyInAttackArea) {
@@ -142,27 +148,26 @@ export class Player {
   }
 
   stopAttacking() {
-    if (
-      this.lastMovmentThroughAxiosX.length === 0 &&
-      this.initialOrientation === "left"
-    )
-      this.updateCurrentSprite(this.sprites.idleLeft);
-    else if (
-      this.lastMovmentThroughAxiosX.length === 0 &&
-      this.initialOrientation === "right"
-    )
-      this.updateCurrentSprite(this.sprites.idleRight);
-    else if (this.lastMovmentThroughAxiosX === "left" && !this.isMoving.toLeft)
-      this.updateCurrentSprite(this.sprites.idleLeft);
-    else if (
-      this.lastMovmentThroughAxiosX === "right" &&
-      !this.isMoving.toRight
-    )
-      this.updateCurrentSprite(this.sprites.idleRight);
-    else if (this.lastMovmentThroughAxiosX === "left" && this.isMoving.toLeft)
-      this.updateCurrentSprite(this.sprites.runToLeft);
-    else if (this.lastMovmentThroughAxiosX === "right" && this.isMoving.toRight)
-      this.updateCurrentSprite(this.sprites.runToRight);
+    if (this.lastMovmentThroughAxiosX.length === 0) {
+      if (this.initialOrientation === "left")
+        this.updateCurrentSprite(this.sprites.idleLeft);
+      else this.updateCurrentSprite(this.sprites.idleRight);
+    } else {
+      if (this.lastMovmentThroughAxiosX === "left" && !this.isMoving.toLeft)
+        this.updateCurrentSprite(this.sprites.idleLeft);
+      else if (
+        this.lastMovmentThroughAxiosX === "right" &&
+        !this.isMoving.toRight
+      )
+        this.updateCurrentSprite(this.sprites.idleRight);
+      else if (this.lastMovmentThroughAxiosX === "left" && this.isMoving.toLeft)
+        this.updateCurrentSprite(this.sprites.runToLeft);
+      else if (
+        this.lastMovmentThroughAxiosX === "right" &&
+        this.isMoving.toRight
+      )
+        this.updateCurrentSprite(this.sprites.runToRight);
+    }
   }
 
   drawPlayer(context) {
