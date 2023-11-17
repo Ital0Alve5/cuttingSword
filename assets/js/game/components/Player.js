@@ -24,6 +24,8 @@ export class Player {
     this.name = name;
 
     this.sprites = sprites;
+    this.initialOrientation = initialOrientation;
+
     this.currentSprite =
       initialOrientation === "right"
         ? this.sprites.idleRight
@@ -140,7 +142,17 @@ export class Player {
   }
 
   stopAttacking() {
-    if (this.lastMovmentThroughAxiosX === "left" && !this.isMoving.toLeft)
+    if (
+      this.lastMovmentThroughAxiosX.length === 0 &&
+      this.initialOrientation === "left"
+    )
+      this.updateCurrentSprite(this.sprites.idleLeft);
+    else if (
+      this.lastMovmentThroughAxiosX.length === 0 &&
+      this.initialOrientation === "right"
+    )
+      this.updateCurrentSprite(this.sprites.idleRight);
+    else if (this.lastMovmentThroughAxiosX === "left" && !this.isMoving.toLeft)
       this.updateCurrentSprite(this.sprites.idleLeft);
     else if (
       this.lastMovmentThroughAxiosX === "right" &&

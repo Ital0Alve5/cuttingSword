@@ -249,7 +249,6 @@ class Main {
         document
           .querySelector(".tutorialOnePlayer")
           .classList.add("activeBlock");
-        console.log(options);
         options.points = true;
         return;
       }

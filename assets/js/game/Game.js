@@ -235,7 +235,13 @@ export class Game {
 
       if (!this.showingWinnerMessage) {
         if (this.checkWinner()) {
-          this.setWinnerMessage(`${userNameText} winner`);
+          const winnerName = this.checkWinner().name;
+          if (winnerName === "Player1") {
+            this.setWinnerMessage(
+              `${userNameText ? userNameText : "Guest"} venceu!`
+            );
+          } else this.setWinnerMessage(`o Ninja venceu!`);
+
           if (this.options.playersQuantity === "1") {
             (async () => {
               if (!(await this.sendMetrics()).error) this.setPointsMessage();
