@@ -73,12 +73,24 @@ class Seed
     {
         $sql = new Mysql();
         return $sql->executeQuery("
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 1, 40, 'Difícil', '2023-11-08 11:21:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 2, 23, 1, 40, 'Impossível', '2023-11-08 11:22:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 3, 23, 0, -40, 'Fácil', '2023-11-08 11:23:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 3, 24, 1, 40, 'Normal', '2023-11-08 11:24:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 0, -10, 'Normal', '2023-11-08 11:25:26');
-            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (2, 1, 23, 1, 40, 'Normal', '2023-11-08 11:26:26');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 1, 40, 'Difícil', '2023-11-21 11:21:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 2, 23, 1, 40, 'Impossível', '2023-11-21 11:22:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 3, 23, 0, -40, 'Fácil', '2023-11-22 11:23:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 4, 24, 1, 40, 'Normal', '2023-11-22 11:24:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 5, 23, 0, -10, 'Normal', '2023-11-23 11:25:16');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 6, 23, 1, 40, 'Normal', '2023-11-23 11:26:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 7, 23, 1, 40, 'Difícil', '2023-11-24 11:21:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 1, 40, 'Impossível', '2023-11-24 11:22:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 2, 23, 0, -40, 'Fácil', '2023-11-25 11:23:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 3, 24, 1, 40, 'Normal', '2023-11-25 11:24:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 4, 23, 0, -10, 'Normal', '2023-11-26 11:25:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 5, 23, 1, 40, 'Normal', '2023-11-26 11:26:16');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 6, 23, 1, 40, 'Difícil', '2023-11-20 11:21:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 7, 23, 1, 40, 'Impossível', '2023-11-20 11:22:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 1, 23, 0, -40, 'Fácil', '2023-11-19 11:23:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 2, 24, 1, 40, 'Normal', '2023-11-19 11:24:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 3, 23, 0, -10, 'Normal', '2023-11-18 11:25:27');
+            INSERT INTO LeagueGameHistory(leagueId, userId, timeLeft, victory, matchPoints, matchLevel, date) VALUES (1, 4, 23, 1, 40, 'Normal', '2023-11-18 11:26:27');
         ");
     }
 }
