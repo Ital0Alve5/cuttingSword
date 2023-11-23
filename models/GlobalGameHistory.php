@@ -36,7 +36,7 @@ class GlobalGameHistory
                     INNER JOIN LeagueGameHistory as lh 
                     ON lh.userId = u.id and u.id = :USER_ID
                 ) INNER JOIN Leagues as l 
-                  on l.id = lh.userId
+                  on l.id = lh.leagueId
             )
             
             ORDER BY date DESC;",
