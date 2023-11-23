@@ -6,22 +6,32 @@ const getUserLeagues = async () => {
 
 export const mountList = async () => {
   const listElement = document.querySelector(".leaguesList");
+  const leagueNameInfoElement = document.querySelector(".warning .leagueName");
+
   const leagueList = await getUserLeagues();
   if (!leagueList) return;
   leagueList.forEach((item) => {
     const liElement = document.createElement("li");
     const spanElement = document.createElement("span");
-    const joinLeagueButton = document.createElement("button");
-
-    joinLeagueButton.innerText = "Jogar";
 
     liElement.classList.add("leagueItem");
     spanElement.classList.add("leagueName");
     spanElement.innerText = item.name;
 
     liElement.appendChild(spanElement);
-    liElement.appendChild(joinLeagueButton);
 
+    if (leagueNameInfoElement.innerText.length > 0) {
+      if (leagueNameInfoElement.innerText !== item.name) {
+        const joinLeagueButton = document.createElement("button");
+
+        joinLeagueButton.innerText = "Jogar";
+
+        liElement.appendChild(joinLeagueButton);
+      } else {
+        liElement.classList.add('currentLeague')
+      }
+    }
+    
     listElement.appendChild(liElement);
   });
 };

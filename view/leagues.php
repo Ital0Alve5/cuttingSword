@@ -13,7 +13,7 @@ include './view/components/header.php';
 <div class="leaguesContainer">
     <h1>Ligas</h1>
     <div class="leagueInfo">
-        <p class="warning">Você está jogando pela liga <strong class="leagueName">teste</strong></p>
+        <p class="warning">Você está jogando pela liga <strong class="leagueName"></strong></p>
         <button class="playCasual">Voltar a jogar casual</button>
     </div>
     <div class="entryLeague">
