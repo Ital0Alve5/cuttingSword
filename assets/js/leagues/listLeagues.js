@@ -20,18 +20,20 @@ export const mountList = async () => {
 
     liElement.appendChild(spanElement);
 
-    if (leagueNameInfoElement.innerText.length > 0) {
-      if (leagueNameInfoElement.innerText !== item.name) {
-        const joinLeagueButton = document.createElement("button");
+    if (
+      leagueNameInfoElement.innerText.length === 0 ||
+      (leagueNameInfoElement.innerText.length > 0 &&
+        leagueNameInfoElement.innerText !== item.name)
+    ) {
+      const joinLeagueButton = document.createElement("button");
 
-        joinLeagueButton.innerText = "Jogar";
+      joinLeagueButton.innerText = "Jogar";
 
-        liElement.appendChild(joinLeagueButton);
-      } else {
-        liElement.classList.add('currentLeague')
-      }
+      liElement.appendChild(joinLeagueButton);
+    } else {
+      liElement.classList.add("currentLeague");
     }
-    
+
     listElement.appendChild(liElement);
   });
 };
