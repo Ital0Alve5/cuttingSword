@@ -80,7 +80,7 @@ class Ranking
             INNER JOIN 
                 Users as u
                 ON u.id = lg.userId
-            WHERE lg.date >= curdate() - INTERVAL 7 day AND lg.date < curdate() AND lg.leagueId = :LEAGUE_ID
+            WHERE lg.date >= curdate() - INTERVAL 7 day AND lg.leagueId = :LEAGUE_ID
             GROUP BY
                 u.name
             ORDER BY
