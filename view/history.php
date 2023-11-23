@@ -12,7 +12,7 @@ include './view/components/header.php';
 
 <div class="historyContainer">
     <h1>Histórico do jogo</h1>
-    <div class="tableContainer">
+    <div class="tableContainer leagueTables">
         <table>
             <thead>
                 <th>Usuário</th>
@@ -27,6 +27,7 @@ include './view/components/header.php';
         </table>
 
     </div>
+    <div class="warning"></div>
 </div>
 
 <?php

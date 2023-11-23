@@ -5,11 +5,34 @@
     return userHistoryJson;
   }
 
+  const setPageMessage = (condition, message) => {
+    const leagueTablesElement = document.querySelector(".leagueTables");
+    const warning = document.querySelector(".warning");
+
+    if (condition) {
+      leagueTablesElement.style.display = "none";
+      warning.style.display = "flex";
+      warning.innerText = message;
+      return false;
+    } else {
+      leagueTablesElement.style.display = "flex";
+      warning.style.display = "none";
+      warning.innerText = "";
+      return true;
+    }
+  };
+
   async function mountTable() {
     const tableBody = document.querySelector("tbody");
     const historyData = await getUserHistory();
 
-    if (!historyData) return;
+    if (
+      !setPageMessage(
+        historyData.length === 0,
+        "Você ainda não tem histórico no jogo. Jogue uma partida ranqueada!"
+      )
+    )
+      return;
 
     historyData.forEach((row) => {
       const tr = document.createElement("tr");

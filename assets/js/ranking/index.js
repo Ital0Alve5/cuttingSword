@@ -21,7 +21,6 @@
 
     const casualTotalRanking = await getCasualTotalRanking();
     const casualWeekRanking = await getCasualWeekRanking();
-
     casualTotalRanking.forEach((row) => {
       const tr = document.createElement("tr");
 

@@ -37,7 +37,7 @@ include './view/components/header.php';
 
         </div>
     </div>
-    <div class="warning">Você não está jogando por nenhuma liga.</div>
+    <div class="warning"></div>
 </div>
 
 <?php
