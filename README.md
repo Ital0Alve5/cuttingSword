@@ -56,11 +56,19 @@ Também com duas tabelas (total e semanal), porém aqui aparecem apenas informa�
 ### Ligas
 O sistema de ligas é bem simples. Serve como um filtro para competir em um grupo menor de pessoas dentro da liga. Para criar uma liga basta colocar um nome e uma palavra-chave. Qualquer outro usuário que tem acesso ao nome e a respectiva palavra-chave terá acesso a participar da liga.
 
+### Como rodar o jogo
+1. Crie uma conexão loopback na porta 5200
+```
+php -S 127.0.0.1:5200
+```
+2. Entre no IP.
+
 ### Estrutura do código
+
 O código foi escrito usando o padrão MVC(Model, View, Controller). Fazendo uma breve sintetização de todo o código por file, temos:
 
 - app  
-Aqui temos duas açõs fundamentais para o andamento da página, como o CORS e as rotas.
+   Aqui temos duas açõs fundamentais para o andamento da página, como o CORS e as rotas.
 
 - assets  
 Todas as imagens, o CSS e os códigos em JavaScript de todo o projeto estão aqui. Incluindo na pasta 'js' temos todo o funcionamento do jogo, todas as requests feitas do front-end para o back-end, além de mensagens de erro e funções de sanitização de dados para evitar SQL Injection.
