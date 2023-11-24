@@ -8,7 +8,7 @@ export const handleCards = () => {
 
   loginButton.addEventListener("click", () => {
     hideError();
-    loginButton.style.backgroundColor = "#3f3f3f";
+    loginButton.style.backgroundColor = "#263355";
     loginButton.style.color = "#fff";
     signupButton.style.backgroundColor = "#fff";
     signupButton.style.color = "#222";
@@ -19,7 +19,7 @@ export const handleCards = () => {
     hideError();
     loginButton.style.backgroundColor = "#fff";
     loginButton.style.color = "#222";
-    signupButton.style.backgroundColor = "#3f3f3f";
+    signupButton.style.backgroundColor = "#263355";
     signupButton.style.color = "#fff";
     loginForm.style.display = "none";
     signupForm.style.display = "block";

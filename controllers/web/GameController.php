@@ -8,7 +8,6 @@ class GameController extends Controller
 {
     public function index()
     {
-        require("./view/game.php");
-        $this->protectedView("entry");
+        $this->protectedView("game");
     }
 }

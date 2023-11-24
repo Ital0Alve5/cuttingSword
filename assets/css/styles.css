@@ -23,6 +23,10 @@
   background: #555;
 }
 
+body {
+  background-color: white;
+}
+
 .errorContainer {
   display: none;
   position: absolute;

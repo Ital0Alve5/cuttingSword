@@ -1,5 +1,5 @@
 header nav {
-  background: #cecff5;
+  background: #263355;
 }
 
 header .menuBurger {
@@ -24,12 +24,24 @@ header ul {
 
 header li {
   display: flex;
+  color: white;
+  font-weight: 900;
 }
 
 header a {
   text-decoration: none;
   padding: 20px;
-  background: #cecff5;
+  color: white;
+  font-weight: 900;
+  background-color: #263355;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+header a:hover {
+  background-color: #4c6299;
 }
 
 header .dropdown {
@@ -55,7 +67,6 @@ header .sublist {
   top: 100%;
   right: 0;
   left: 0;
-  background: #cecff5;
   gap: 0;
 }
 
@@ -71,6 +82,11 @@ header .subItem a {
 header .userName {
   position: absolute;
   right: 0;
-  margin: 20px;
   top: 0;
+  color: white;
+  font-weight: 900;
+}
+
+header .userName span {
+  padding: 20px;
 }

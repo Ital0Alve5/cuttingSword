@@ -23,6 +23,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  top: 10px;
 }
 
 .playerHealthContainer {
@@ -66,7 +67,7 @@ body {
 
 .timer {
   color: white;
-  background: #253275;
+  background: #263355;
   border-radius: 20px;
   min-width: 100px;
   width: 100px;
@@ -98,7 +99,7 @@ body {
 }
 
 .points {
-  background: #253275;
+  background: #263355;
   padding: 20px;
   border-radius: 20px;
 }
@@ -118,7 +119,7 @@ body {
   border-radius: 20px;
   border: none;
   color: white;
-  background-color: #253275;
+  background-color: #263355;
 }
 
 .playersQuantity,
@@ -133,7 +134,7 @@ body {
 }
 .playersQuantity li,
 .difficultyLevel li {
-  background-color: #253275;
+  background-color: #263355;
   color: white;
   border-radius: 20px;
   font-size: 2rem;

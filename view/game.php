@@ -12,7 +12,7 @@ include './view/components/header.php';
 
 <div class="game">
     <p class="tutorial activeFlex">
-        Use ← ↑ → ↓ and press Enter to choose an option.
+        Use ← ↑ → ↓ e pressione ENTER para escolher uma opção.
     </p>
     <div class="container">
         <ul class="playersQuantity">
