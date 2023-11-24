@@ -9,12 +9,12 @@ Router::post('/leagues/join', 'controllers\api\LeagueController@joinLeague');
 Router::get('/leagues/exit', 'controllers\api\LeagueController@exitLeague');
 Router::get('/leagues/info', 'controllers\api\LeagueController@infoLeague');
 
-// Login
-Router::post('/login', 'controllers\api\LoginController@index');
+//user
+Router::get('/user/info', 'controllers\api\UserController@getLoggedUserInfo');
+Router::get('/user/history', 'controllers\api\HistoryController@getGlobalGameHistory');
 
-//Signup
-Router::post('/signup', 'controllers\api\SignupController@index');
-
+//game
+Router::post('/game/metrics', 'controllers\api\GameController@index');
 
 //Ranking
 Router::get('/ranking/casual/total', 'controllers\api\RankingController@getCasualTotalRanking');
@@ -22,13 +22,13 @@ Router::get('/ranking/casual/week', 'controllers\api\RankingController@getCasual
 Router::get('/ranking/league/total', 'controllers\api\RankingController@getLeagueTotalRanking');
 Router::get('/ranking/league/week', 'controllers\api\RankingController@getLeagueWeekRanking');
 
+// Login
+Router::post('/login', 'controllers\api\LoginController@index');
+
+//Signup
+Router::post('/signup', 'controllers\api\SignupController@index');
 
 //logout
 Router::get('/logout', 'controllers\api\LogoutController@index');
 
-//user
-Router::get('/user/info', 'controllers\api\UserController@getLoggedUserInfo');
-Router::get('/user/history', 'controllers\api\HistoryController@getGlobalGameHistory');
 
-//game
-Router::post('/game/metrics', 'controllers\api\GameController@index');
