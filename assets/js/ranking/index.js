@@ -5,13 +5,13 @@
     return rankingJson;
   }
 
-  async function getCasualWeekRanking() {
+  const getCasualWeekRanking = async () => {
     const ranking = await fetch("http://127.0.0.1:5200/ranking/casual/week");
     const rankingJson = await ranking.json();
     return rankingJson;
-  }
+  };
 
-  async function mountCasualTables() {
+  const mountCasualTables = async () => {
     const totalRankingTable = document.querySelector(
       ".totalRankingContainer tbody"
     );
@@ -41,7 +41,7 @@
       });
       weekRankingTable.appendChild(tr);
     });
-  }
+  };
 
   await mountCasualTables();
 })();

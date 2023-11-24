@@ -34,7 +34,7 @@ include './view/components/header.php';
 
 function customFooter()
 {
-    echo '<script src="../assets/js/history.js"></script>';
+    echo '<script src="../assets/js/history/index.js"></script>';
 }
 
 include './view/components/footer.php'

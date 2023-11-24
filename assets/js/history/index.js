@@ -1,9 +1,9 @@
 (async function () {
-  async function getUserHistory() {
+  const getUserHistory = async () => {
     const userHistory = await fetch("http://127.0.0.1:5200/user/history");
     const userHistoryJson = await userHistory.json();
     return userHistoryJson;
-  }
+  };
 
   const setPageMessage = (condition, message) => {
     const leagueTablesElement = document.querySelector(".leagueTables");
@@ -22,7 +22,7 @@
     }
   };
 
-  async function mountTable() {
+  const mountTable = async () => {
     const tableBody = document.querySelector("tbody");
     const historyData = await getUserHistory();
 
@@ -48,7 +48,7 @@
       });
       tableBody.appendChild(tr);
     });
-  }
+  };
 
   await mountTable();
 })();

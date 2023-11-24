@@ -1,15 +1,15 @@
 (async function () {
-  async function getLeagueTotalRanking() {
+  const getLeagueTotalRanking = async () => {
     const ranking = await fetch("http://127.0.0.1:5200/ranking/league/total");
     const rankingJson = await ranking.json();
     return rankingJson;
-  }
+  };
 
-  async function getLeagueWeekRanking() {
+  getLeagueWeekRanking = async () => {
     const ranking = await fetch("http://127.0.0.1:5200/ranking/league/week");
     const rankingJson = await ranking.json();
     return rankingJson;
-  }
+  };
 
   const setPageMessage = (condition, message) => {
     const leagueTablesElement = document.querySelector(".leagueTables");
@@ -39,7 +39,7 @@
     );
   };
 
-  async function mountLeagueTables() {
+  const mountLeagueTables = async () => {
     const totalRankingTable = document.querySelector(
       ".totalRankingContainer tbody"
     );
@@ -77,7 +77,7 @@
       });
       weekRankingTable.appendChild(tr);
     });
-  }
+  };
 
   if (await checkPlayingLeague()) await mountLeagueTables();
 })();

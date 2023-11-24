@@ -19,6 +19,7 @@ main {
 h1 {
   color: #263355;
   font-size: 5rem;
+  text-align: center;
   text-shadow: white 2px 0px 0px, white 1.75517px 0.958851px 0px,
     white 1.0806px 1.68294px 0px, white 0.141474px 1.99499px 0px,
     white -0.832294px 1.81859px 0px, white -1.60229px 1.19694px 0px,
