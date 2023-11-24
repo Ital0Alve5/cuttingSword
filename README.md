@@ -61,23 +61,23 @@ O sistema de ligas é bem simples. Serve como um filtro para competir em um grup
 ```
 php -S 127.0.0.1:5200
 ```
-2. Entre no IP.
+2. Acesse a rota.
 
 ### Estrutura do código
 
-O código foi escrito usando o padrão MVC(Model, View, Controller). Fazendo uma breve sintetização de todo o código por file, temos:
+O código foi escrito usando o padrão MVC(Model, View, Controller). Fazendo uma breve sintetização de todo o código, temos:
 
 - app  
    Aqui temos classes fundamentais para o andamento da página, como o CORS e as rotas.
 
 - assets  
-Todas as imagens, o CSS e os códigos em JavaScript de todo o projeto estão aqui. Incluindo na pasta 'js' temos todo o funcionamento do jogo, todas as requests feitas do front-end para o back-end, além de mensagens de erro e funções de sanitização de dados.
+Todas as imagens, o CSS e o JavaScript de todo o projeto estão aqui. Temos todo o funcionamento do jogo, todas as requests feitas do front-end para o back-end, além de mensagens de erro e funções de sanitização de dados.
 
 - controllers  
-Dividimos os controllers em 'web' e 'api'. A parte web faz redirecionamentos e proteções de paǵina. Já a parte de api é responsável por encaminhar as informações solicitadas pelo front.
+Dividimos os controllers em 'web' e 'api'. Em 'web', fazemos redirecionamentos e proteções de paǵina. Já a 'api' é responsável por receber requisições do frontend e responder no formato JSON.
 
 - models  
-Aqui temos a parte que cria a relação com o banco de dados, além de todo o SQL que será eventualmente usado pelo controller está nessa pasta. Temos também uma classe seeder para preencher a tabela.
+Aqui temos as regras de negócio e interações com o banco de dados. Todo comportamento que necessita de acesso ao banco e que será, eventualmente, usado pelo controller, está nessa pasta. Temos também uma classe seeder para preencher a tabela.
 
 - routers  
 Aqui temos todas as rotas dentro do site e seus respectivos controllers responsáveis por lidar com a requisição.
