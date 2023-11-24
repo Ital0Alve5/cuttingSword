@@ -9,10 +9,6 @@ Router::post('/leagues/join', 'controllers\api\LeagueController@joinLeague');
 Router::get('/leagues/exit', 'controllers\api\LeagueController@exitLeague');
 Router::get('/leagues/info', 'controllers\api\LeagueController@infoLeague');
 
-// History
-Router::get('/user/history', 'controllers\api\HistoryController@getGlobalGameHistory');
-
-
 // Login
 Router::post('/login', 'controllers\api\LoginController@index');
 
@@ -32,6 +28,7 @@ Router::get('/logout', 'controllers\api\LogoutController@index');
 
 //user
 Router::get('/user/info', 'controllers\api\UserController@getLoggedUserInfo');
+Router::get('/user/history', 'controllers\api\HistoryController@getGlobalGameHistory');
 
 //game
 Router::post('/game/metrics', 'controllers\api\GameController@index');
