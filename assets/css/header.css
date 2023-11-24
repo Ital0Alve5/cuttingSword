@@ -85,8 +85,5 @@ header .userName {
   top: 0;
   color: white;
   font-weight: 900;
-}
-
-header .userName span {
   padding: 20px;
 }
