@@ -86,4 +86,6 @@ header .userName {
   color: white;
   font-weight: 900;
   padding: 20px;
+  display: flex;
+  gap: 5px;
 }
