@@ -1,0 +1,39 @@
+body {
+  background-image: url("../img/background.png");
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+  backdrop-filter: blur(8px) brightness(45%);
+}
+
+main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+h1 {
+  color: #263355;
+  font-size: 5rem;
+  text-shadow: white 2px 0px 0px, white 1.75517px 0.958851px 0px,
+    white 1.0806px 1.68294px 0px, white 0.141474px 1.99499px 0px,
+    white -0.832294px 1.81859px 0px, white -1.60229px 1.19694px 0px,
+    white -1.97998px 0.28224px 0px, white -1.87291px -0.701566px 0px,
+    white -1.30729px -1.5136px 0px, white -0.421592px -1.95506px 0px,
+    white 0.567324px -1.91785px 0px, white 1.41734px -1.41108px 0px,
+    white 1.92034px -0.558831px 0px;
+}
+
+button {
+  padding: 20px;
+  font-size: 1.8rem;
+  font-weight: 900;
+  background: #263355;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+}

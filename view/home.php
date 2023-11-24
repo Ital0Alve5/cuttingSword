@@ -3,17 +3,22 @@ $pageTitle = "Home";
 
 function customHeader()
 {
+    echo '<link rel="stylesheet" href="../../assets/css/home.css">';
 }
 
 include './view/components/header.php'
 
 ?>
 
-<h1>
-    Bem vindo à home,
-    <span class="userName"></span>
-</h1>
+<main>
+    <h1>Cutting Sword</h1>
+    <button class="playNow">
+        Jogue Agora
+    </button>
+</main>
 
+<?php
+    echo '<script src="../assets/js/home/index.js"></script>';
 
-
-<?php include './view/components/footer.php' ?>
+    include './view/components/footer.php'
+?>

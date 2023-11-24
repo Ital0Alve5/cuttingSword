@@ -12,7 +12,7 @@ class Main {
     const screen = new Screen();
 
     const background = new Sprite({
-      imageSrc: "./assets/img/bg.gif",
+      imageSrc: "./assets/img/game/bg.gif",
       scale: 1.3,
     });
 
@@ -21,7 +21,7 @@ class Main {
         x: 700,
         y: 135,
       },
-      imageSrc: "./assets/img/shop.png",
+      imageSrc: "./assets/img/game/shop.png",
       scale: 2.5,
       maxFrames: 6,
     });
@@ -35,7 +35,7 @@ class Main {
       initialOrientation: "right",
       sprites: {
         idleLeft: new Sprite({
-          imageSrc: "./assets/img/samuraiMack/IdleLeft.png",
+          imageSrc: "./assets/img/game/samuraiMack/IdleLeft.png",
           scale: 2.5,
           maxFrames: 8,
           offset: {
@@ -44,7 +44,7 @@ class Main {
           },
         }),
         idleRight: new Sprite({
-          imageSrc: "./assets/img/samuraiMack/IdleRight.png",
+          imageSrc: "./assets/img/game/samuraiMack/IdleRight.png",
           scale: 2.5,
           maxFrames: 8,
           offset: {
@@ -53,7 +53,7 @@ class Main {
           },
         }),
         runToRight: new Sprite({
-          imageSrc: "./assets/img/samuraiMack/RunToRight.png",
+          imageSrc: "./assets/img/game/samuraiMack/RunToRight.png",
           scale: 2.5,
           maxFrames: 8,
           offset: {
@@ -62,7 +62,7 @@ class Main {
           },
         }),
         runToLeft: new Sprite({
-          imageSrc: "./assets/img/samuraiMack/RunToLeft.png",
+          imageSrc: "./assets/img/game/samuraiMack/RunToLeft.png",
           scale: 2.5,
           maxFrames: 8,
           offset: {
@@ -71,7 +71,7 @@ class Main {
           },
         }),
         attackLeft: new Sprite({
-          imageSrc: "./assets/img/samuraiMack/Attack2Left.png",
+          imageSrc: "./assets/img/game/samuraiMack/Attack2Left.png",
           scale: 2.5,
           maxFrames: 6,
           offset: {
@@ -80,7 +80,7 @@ class Main {
           },
         }),
         attackRight: new Sprite({
-          imageSrc: "./assets/img/samuraiMack/Attack2Right.png",
+          imageSrc: "./assets/img/game/samuraiMack/Attack2Right.png",
           scale: 2.5,
           maxFrames: 6,
           offset: {
@@ -89,7 +89,7 @@ class Main {
           },
         }),
         death: new Sprite({
-          imageSrc: "./assets/img/samuraiMack/Death.png",
+          imageSrc: "./assets/img/game/samuraiMack/Death.png",
           scale: 2.5,
           maxFrames: 6,
           offset: {
@@ -109,7 +109,7 @@ class Main {
       initialOrientation: "left",
       sprites: {
         idleLeft: new Sprite({
-          imageSrc: "./assets/img/kenji/IdleLeft.png",
+          imageSrc: "./assets/img/game/kenji/IdleLeft.png",
           scale: 2.5,
           maxFrames: 4,
           offset: {
@@ -118,7 +118,7 @@ class Main {
           },
         }),
         idleRight: new Sprite({
-          imageSrc: "./assets/img/kenji/IdleRight.png",
+          imageSrc: "./assets/img/game/kenji/IdleRight.png",
           scale: 2.5,
           maxFrames: 4,
           offset: {
@@ -127,7 +127,7 @@ class Main {
           },
         }),
         runToRight: new Sprite({
-          imageSrc: "./assets/img/kenji/RunToRight.png",
+          imageSrc: "./assets/img/game/kenji/RunToRight.png",
           scale: 2.5,
           maxFrames: 8,
           offset: {
@@ -136,7 +136,7 @@ class Main {
           },
         }),
         runToLeft: new Sprite({
-          imageSrc: "./assets/img/kenji/RunToLeft.png",
+          imageSrc: "./assets/img/game/kenji/RunToLeft.png",
           scale: 2.5,
           maxFrames: 8,
           offset: {
@@ -145,7 +145,7 @@ class Main {
           },
         }),
         attackLeft: new Sprite({
-          imageSrc: "./assets/img/kenji/Attack1Left.png",
+          imageSrc: "./assets/img/game/kenji/Attack1Left.png",
           scale: 2.5,
           maxFrames: 4,
           offset: {
@@ -154,7 +154,7 @@ class Main {
           },
         }),
         attackRight: new Sprite({
-          imageSrc: "./assets/img/kenji/Attack1Right.png",
+          imageSrc: "./assets/img/game/kenji/Attack1Right.png",
           scale: 2.5,
           maxFrames: 4,
           offset: {
@@ -163,7 +163,7 @@ class Main {
           },
         }),
         death: new Sprite({
-          imageSrc: "./assets/img/kenji/Death.png",
+          imageSrc: "./assets/img/game/kenji/Death.png",
           scale: 2.5,
           maxFrames: 7,
           offset: {

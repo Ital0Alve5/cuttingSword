@@ -1,5 +1,9 @@
 body {
-  background-color: black;
+  background-image: url("../../img/background.png");
+  background-size: cover;
+  height: 100vh;
+  background-attachment: fixed;
+  backdrop-filter: blur(8px) brightness(45%);
 }
 
 .game {
