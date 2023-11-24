@@ -28,6 +28,7 @@ export const handleLogin = () => {
   passwordField.value = passwordField.value.trim();
 
   loginButton.addEventListener("click", async () => {
+
     hideError();
 
     if (hasErrors()) return;

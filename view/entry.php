@@ -21,7 +21,7 @@ include './view/components/header.php';
             <form>
                 <input class="emailField" type="text" placeholder="Digite seu email" />
                 <input class="passwordField" type="password" placeholder="Digite sua senha" />
-                <button class="btn login">login</button>
+                <button type="button" class="btn login">login</button>
             </form>
         </div>
 
@@ -31,7 +31,7 @@ include './view/components/header.php';
                 <input class="userNameField" type="text" placeholder="Escolha um nome de usuário" />
                 <input class="passwordField" type="password" placeholder="Crie uma senha" />
                 <input class="confirmPasswordField" type="password" placeholder="Confirme sua senha" />
-                <button class="btn signup">Cadastrar conta</button>
+                <button type="button" class="btn signup">Cadastrar conta</button>
             </form>
         </div>
 

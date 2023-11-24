@@ -3,7 +3,7 @@ import {
   isEmailInvalid,
   isPasswordInvalid,
   isConfirmPasswordInvalid,
-  isUsernameInvalid
+  isUsernameInvalid,
 } from "../utils/sanitize.js";
 import { showError, hideError } from "../utils/setError.js";
 
@@ -40,6 +40,7 @@ export const handleSignup = () => {
   confirmPasswordField.value = confirmPasswordField.value.trim();
 
   signupButton.addEventListener("click", async () => {
+
     hideError();
 
     if (hasErrors()) return;
