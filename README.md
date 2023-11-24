@@ -7,7 +7,7 @@
 Criado e desenvolvido por:
 - Heitor Plinta de Oliveira
 - Ítalo Alves de Paula e Silva
-- Yasmin Zedelinski Belão Rodrigues
+- Yasmim Zedelinski Belão Rodrigues
 
 ## Índice
 - <a href="#jogo">Jogo</a>
