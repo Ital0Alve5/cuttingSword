@@ -20,9 +20,12 @@
     );
 
     const casualTotalRanking = await getCasualTotalRanking();
+
     const casualWeekRanking = await getCasualWeekRanking();
     casualTotalRanking.forEach((row) => {
       const tr = document.createElement("tr");
+
+      if (row.userName === userNameText) tr.style.background = "#d5f5e3";
 
       Object.keys(row).forEach((cell) => {
         const td = document.createElement("td");
@@ -34,6 +37,9 @@
 
     casualWeekRanking.forEach((row) => {
       const tr = document.createElement("tr");
+
+      if (row.userName === userNameText) tr.style.background = "#d5f5e3";
+
       Object.keys(row).forEach((cell) => {
         const td = document.createElement("td");
         td.innerText = row[cell];
