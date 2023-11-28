@@ -61,8 +61,8 @@ class Seed
     {
         $sql = new Mysql();
         return $sql->executeQuery("
-            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (1, 'Go Horse', 'e10adc3949ba59abbe56e057f20f883e');
-            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (2, 'Junk Code', 'e10adc3949ba59abbe56e057f20f883e');
+            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (1, 'GoHorse', 'e10adc3949ba59abbe56e057f20f883e');
+            INSERT INTO Leagues(creatorId, name, secretKey) VALUES (2, 'JunkCode', 'e10adc3949ba59abbe56e057f20f883e');
         ");
     }
 

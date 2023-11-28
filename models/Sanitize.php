@@ -19,6 +19,6 @@ class Sanitize
     public static function sanitizeName($username)
     {
         $username = filter_var($username, FILTER_SANITIZE_SPECIAL_CHARS);
-        return preg_match('/^[a-zA-Z0-9 _-]+$/', $username);
+        return preg_match('/^[a-zA-Z0-9_-]+$/', $username);
     }
 }
